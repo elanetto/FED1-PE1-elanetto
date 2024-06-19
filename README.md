@@ -1,3 +1,5 @@
-# FED1 Project Exam 1
+![image](https://github.com/elanetto/FED1-PE1-elanetto/blob/main/assets/ReadMe/readme-image-header.png?raw=true)
 
-Use this file to describe your project.
+# FED1 Project Exam: Blog
+
+Creating a blog with JavaScript
