@@ -30,10 +30,23 @@ h1 {
 
 header {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
     width: 100vw;
+}
+
+.bg-image {
+    background-image: url(https://github.com/elanetto/FED1-PE1-elanetto/blob/main/assets/images/keywater/main_image.jpg?raw=true);
+    object-fit: fill;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+}
+
+.bg-image h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 nav {
