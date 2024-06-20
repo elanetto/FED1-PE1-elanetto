@@ -5,7 +5,8 @@
 :root {
     --white: #FFF;
     --dark: #322E40;
-    --bluegray: #D7D4E6;
+    --gray: #D7D4E6;
+    --green: #A0B17D;
 
 }
 
@@ -114,9 +115,36 @@ a {
     text-decoration: none;
 }
 
+.about-us {
+    display: flex;
+    align-items: center;
+    justify-content:end;
+    width: 100vw;
+    background-color: var(--green);
+    padding: 5rem;
+}
+
+.about-us-image {
+    width: 600px;
+}
+
+.about-text {
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-bottom: 4rem;
+}
+
+.about-us h2 {
+    font-family: "Amatic SC", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 6rem;
+    
+}
+
 footer {
     background-color: var(--dark);
-    color: var(--bluegray);
+    color: var(--gray);
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -131,7 +159,7 @@ footer {
 }
 
 .footer-links a {
-    color: var(--bluegray);
+    color: var(--gray);
 }
 
 .footer-links a:hover {
