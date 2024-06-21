@@ -3,6 +3,6 @@ Visit deployed project: https://elanetto.github.io/FED1-PE1-elanetto/
 
 # FED1 Project Exam: Blog
 
-Creating a blog with JavaScript. 
+Creating a blog with JavaScript. Currently working on the Register page.
 
 This project is currently under production, and will be done in August of 2024.
