@@ -40,7 +40,7 @@ registerButton.addEventListener('click', function() {
         password: registerPassword.value
     };
 
-    fetch('https://api.chucknorris.io/jokes/random', {
+    fetch('https://v2.api.noroff.dev/auth/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
