@@ -1,59 +1,85 @@
-// Make use of the register form and the API to register new user
 
-// set variables
 
-// input
-const username = document.getElementById('username');
-const registerEmail = document.getElementById('email-register');
-const registerPassword = document.getElementById('password-register');
+document.addEventListener('DOMContentLoaded', function () {
+    const errorMessage = document.getElementById('register-error');
+    const registerBtn = document.getElementById('register-btn');
+        
+    registerBtn.addEventListener('click', async function (event) {
+        event.preventDefault();
+        
+        const username = document.getElementById('username').value;
+        const email = document.getElementById('email-register').value;
+        const password = document.getElementById('password-register').value;
+        
+        errorMessage.style.display = 'none';
 
-// button
-const registerButton = document.getElementById('register-btn');
+        if (username.length < 2 || email.length < 2 || password.length < 2) {
+            errorMessage.style.display = 'block';
+            return;
+        }
 
-// save username input when someone writes in the input field
+        if (password.length < 9) {
+            errorMessage.innerHTML = 'Passordet må inneholde mer enn 9 tegn.';
+            errorMessage.style.display = 'block';
+            return;
+        }
 
-username.addEventListener('input', function() {
-    localStorage.setItem('username', username.value);
-}
-);
+        if (password.length > 20) {
+            errorMessage.innerHTML = 'Passordet må inneholde mindre enn 20 tegn.';
+            errorMessage.style.display = 'block';
+            return;
+        }
 
-// save registerEmail input when someone writes in the input field
+        if (!email.includes('@stud.noroff.no')) {
+            errorMessage.innerHTML = 'Eposten må slutte med @stud.noroff.no.';
+            errorMessage.style.display = 'block';
+            return;
+        }
 
-registerEmail.addEventListener('input', function() {
-    localStorage.setItem('registerEmail', registerEmail.value);
-}   
-);
+        if (!/^[a-zA-Z0-9]+$/.test(username)) {
+            errorMessage.innerHTML = 'Brukernavnet kan kun inneholde bokstaver og tall.';
+            errorMessage.style.display = 'block';
+            return;
+        }
+        
+        const user = {
+            username: username,
+            email: email,
+            password: password
+        };
+        
+        try {
+            const response = await fetch('https://v2.api.noroff.dev/auth/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            });
 
-// save registerPassword input when someone writes in the input field
+            const data = await response.json();
+            console.log(data);
 
-registerPassword.addEventListener('input', function() {
-    localStorage.setItem('registerPassword', registerPassword.value);
-}   
-);
+            // check if user already exists in API database and show error message
+            if (data.error) {
+                errorMessage.style.display = 'block';
+                errorMessage.innerHTML = data.message;
+                console.log(data.message);
+                return;
+            }
 
-// register new user
+            if (data.user) {
+                localStorage.setItem('username', data.user.username);
+                localStorage.setItem('email', data.user.email);
+                window.location.href = 'login.html';
+            }
 
-registerButton.addEventListener('click', function() {
-    let user = {
-        username: username.value,
-        email: registerEmail.value,
-        password: registerPassword.value
-    };
-
-    fetch('https://v2.api.noroff.dev/auth/register', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(user)
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Success:', data);
-    })
-    .catch((error) => {
-        console.error('Error:', error);
+        } catch (error) {
+            console.log(error);
+            errorMessage.style.display = 'block';
+            errorMessage.innerHTML = 'Noe gikk galt, prøv igjen senere.';
+        }
+        
+        document.getElementById('register-form').reset();
     });
-}   
-);
-
+});

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/cfcc846d5b.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
@@ -38,10 +39,11 @@
                                     <input id="email-register" placeholder="Epost" type="email">
                                 </li>
                                 <li>
-                                    <label for="password-register">Passord:</label>
+                                    <label for="password-register">Passord: <i class="fa-solid fa-eye-slash" id="show-password" onclick="showPassword()"></i></label>
                                     <input id="password-register" placeholder="Passord" type="password">
                                 </li>
                             </ul>
+                            <div id="register-error">* Vennligst fyll inn alle feltene *</div>
                             <button class="btn-admin" id="register-btn" type="submit">Registrer meg</button>
                             <p class="already-user-text">Har du allerede bruker?
                                 <br>Logg inn <a href="login.html">her</a>
@@ -59,5 +61,57 @@
             <a href="#"><li>Om Oss</li></a>
         </ul>
     </footer>
+    <script>
+        const showPasswordBtn = document.getElementById("show-password");
+
+        function showPassword() {
+            const passwordInput = document.getElementById("password-register");
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+        };
+        // show password code from https://www.w3schools.com/howto/howto_js_toggle_password.asp
+
+        // Trying to toggle between FontAwesome; eye-slash and eye icons
+        function toggleBetweenClasses(showPasswordBtn, eyeClosed, eyeOpen) {
+            el.classList.toggle(eyeClosed);
+            el.classList.toggle(eyeOpen);
+        }
+
+        function myToggleBetweenClasses (showPasswordBtn, eyeClosed, eyeOpen) {
+            toggleBetweenClasses(showPasswordBtn, "fa-solid fa-eye-slash", "fa-solid fa-eye");
+        }
+
+        showPasswordBtn.addEventListener('click', myToggleBetweenClasses);
+
+        // Toggle between FontAwesome icons from https://stackoverflow.com/questions/52119509/switching-between-font-awesome-icons
+
+        function toggleBetweenTwoClasses(el, c1, c2) {
+            var currentClass = el.getAttribute("class");
+            var newClass;
+            if (currentClass.indexOf(c1) !== -1) {
+                newClass = currentClass.replace(c1, c2);
+                // Do stuff 1
+            }
+            if (currentClass.indexOf(c2) !== -1) {
+                newClass = currentClass.replace(c2, c1);
+                // Do stuff 2
+            }
+            el.setAttribute("class", newClass);
+            }
+
+            function myToggleBetweenTwoClasses(el, c1, c2) {
+            toggleBetweenTwoClasses(document.getElementById("toggle"), "fa-bars", "fa-close");
+            }
+
+            var icon = document.getElementById("toggle");
+
+
+            icon.addEventListener("click", myToggleBetweenTwoClasses);
+
+            // code from https://stackoverflow.com/questions/52119509/switching-between-font-awesome-icons
+    </script>
 </body>
 </html>
