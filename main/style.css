@@ -211,6 +211,14 @@ a {
     display: none;
 }
 
+.fa-solid {
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+}
+
 .center-content {
     display: flex;
     align-items: center;
