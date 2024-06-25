@@ -39,7 +39,12 @@
                                     <input id="email-register" placeholder="Epost" type="email">
                                 </li>
                                 <li>
-                                    <label for="password-register">Passord: <i class="fa-solid fa-eye-slash" id="show-password" onclick="showPassword()"></i></label>
+                                    <label for="password-register">Passord: &nbsp;    
+                                        <span class="eye-container" onclick="showPassword()" id="show-password">
+                                            <i class="fa-solid fa-eye-slash"></i>
+                                            <i class="fa-solid fa-eye hide"></i>
+                                        </span>
+                                    </label>
                                     <input id="password-register" placeholder="Passord" type="password">
                                 </li>
                             </ul>
@@ -62,56 +67,26 @@
         </ul>
     </footer>
     <script>
-        const showPasswordBtn = document.getElementById("show-password");
+        // const showPasswordBtn = document.getElementById("show-password");
 
-        function showPassword() {
-            const passwordInput = document.getElementById("password-register");
-            if (passwordInput.type === "password") {
-                passwordInput.type = "text";
-            } else {
-                passwordInput.type = "password";
-            }
-        };
-        // show password code from https://www.w3schools.com/howto/howto_js_toggle_password.asp
+        // function showPassword() {
+        //     const passwordInput = document.getElementById("password-register");
+        //     if (passwordInput.type === "password") {
+        //         passwordInput.type = "text";
+        //     } else {
+        //         passwordInput.type = "password";
+        //     }
+        // };
+        // // show password code from https://www.w3schools.com/howto/howto_js_toggle_password.asp
 
-        // Trying to toggle between FontAwesome; eye-slash and eye icons
-        function toggleBetweenClasses(showPasswordBtn, eyeClosed, eyeOpen) {
-            el.classList.toggle(eyeClosed);
-            el.classList.toggle(eyeOpen);
-        }
+        // const eyeContainerEl = document.querySelector('.eye-container')
 
-        function myToggleBetweenClasses (showPasswordBtn, eyeClosed, eyeOpen) {
-            toggleBetweenClasses(showPasswordBtn, "fa-solid fa-eye-slash", "fa-solid fa-eye");
-        }
+        // eyeContainerEl.addEventListener("click", () => {
+        //     for(let i=0; i<eyeContainerEl.children.length; i++){
+        //     eyeContainerEl.children[i].classList.toggle("hide")
+        //     }
+        // });
 
-        showPasswordBtn.addEventListener('click', myToggleBetweenClasses);
-
-        // Toggle between FontAwesome icons from https://stackoverflow.com/questions/52119509/switching-between-font-awesome-icons
-
-        function toggleBetweenTwoClasses(el, c1, c2) {
-            var currentClass = el.getAttribute("class");
-            var newClass;
-            if (currentClass.indexOf(c1) !== -1) {
-                newClass = currentClass.replace(c1, c2);
-                // Do stuff 1
-            }
-            if (currentClass.indexOf(c2) !== -1) {
-                newClass = currentClass.replace(c2, c1);
-                // Do stuff 2
-            }
-            el.setAttribute("class", newClass);
-            }
-
-            function myToggleBetweenTwoClasses(el, c1, c2) {
-            toggleBetweenTwoClasses(document.getElementById("toggle"), "fa-bars", "fa-close");
-            }
-
-            var icon = document.getElementById("toggle");
-
-
-            icon.addEventListener("click", myToggleBetweenTwoClasses);
-
-            // code from https://stackoverflow.com/questions/52119509/switching-between-font-awesome-icons
     </script>
 </body>
 </html>

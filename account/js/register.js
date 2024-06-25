@@ -1,5 +1,26 @@
 
+// show password code from https://www.w3schools.com/howto/howto_js_toggle_password.asp
+const showPasswordBtn = document.getElementById("show-password");
 
+function showPassword() {
+    const passwordInput = document.getElementById("password-register");
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+    } else {
+        passwordInput.type = "password";
+    }
+};
+
+// Toggle eye icon when clicking on it:
+const eyeContainerEl = document.querySelector('.eye-container')
+
+eyeContainerEl.addEventListener("click", () => {
+    for(let i=0; i<eyeContainerEl.children.length; i++){
+    eyeContainerEl.children[i].classList.toggle("hide")
+    }
+});
+
+// Register new user & check if input is OK:
 document.addEventListener('DOMContentLoaded', function () {
     const errorMessage = document.getElementById('register-error');
     const registerBtn = document.getElementById('register-btn');
@@ -68,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
+            // Send to login-page when user is made
             if (data.user) {
                 localStorage.setItem('username', data.user.username);
                 localStorage.setItem('email', data.user.email);
