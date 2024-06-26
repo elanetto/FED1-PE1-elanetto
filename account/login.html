@@ -2,12 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/cfcc846d5b.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nøklevann: Logg inn</title>
     <link rel="stylesheet" href="../main/style.css">
+    <script src="./js/login.js" defer></script>
 </head>
 <body>
     <header>
@@ -31,14 +33,20 @@
                         <div class="register-form-inputs">
                             <ul>
                                 <li>
-                                    <label for="email-register">Epost:</label>
+                                    <label for="email-login">Epost:</label>
                                     <input id="email-login" placeholder="Epost" type="email">
                                 </li>
                                 <li>
-                                    <label for="password-register">Passord:</label>
+                                    <label for="password-login">Passord: &nbsp;    
+                                        <span class="eye-container" onclick="showPassword()" id="show-password-login">
+                                            <i class="fa-solid fa-eye-slash"></i>
+                                            <i class="fa-solid fa-eye hide"></i>
+                                        </span>
+                                    </label>
                                     <input id="password-login" placeholder="Passord" type="password">
                                 </li>
                             </ul>
+                            <div id="login-error">Det har skjedd en feil. Prøv igjen.</div>
                             <button class="btn-admin" id="login-btn" type="submit">Logg inn</button>
                             </p>
                         </div>
