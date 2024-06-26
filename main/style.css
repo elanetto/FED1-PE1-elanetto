@@ -79,12 +79,12 @@ header {
 }
 
 .bg-image {
-    background-image: url(https://github.com/elanetto/FED1-PE1-elanetto/blob/main/assets/images/keywater/main_image.jpg?raw=true);
-    object-fit: fill;
+    background-image: url(https://github.com/elanetto/FED1-PE1-elanetto/blob/main/assets/images/200kb-images/kewater_view-01.jpg?raw=true);
     display: flex;
     flex-direction: column;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
+    background-size: cover;
 }
 
 .bg-image h1 {
@@ -210,7 +210,7 @@ a {
     font-size: 4rem;
 }
 
-#register-error {
+#register-error, #login-error {
     color: red;
     font-style: italic;
     background-color: #ffffff88;
