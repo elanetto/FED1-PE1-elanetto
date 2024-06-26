@@ -16,11 +16,11 @@
     font-style: normal;
   }
   
-  .amatic-sc-bold {
+.amatic-sc-bold {
     font-family: "Amatic SC", sans-serif;
     font-weight: 700;
     font-style: normal;
-  }
+}
   
 
 body {
@@ -30,6 +30,10 @@ body {
     display: flex;
     flex-direction: column;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a {
+    text-decoration: none;
 }
 
 h1 {
@@ -45,6 +49,10 @@ h1 {
     font-style: normal;
     color: var(--white);
     font-size: 2rem;
+}
+
+.logo a {
+    color: var(--white);
 }
 
 .title-index {
