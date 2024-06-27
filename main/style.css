@@ -210,6 +210,10 @@ a {
     font-size: 4rem;
 }
 
+.welcome-box h1 {
+    font-size: 2rem;
+}
+
 #register-error, #login-error {
     color: red;
     font-style: italic;
