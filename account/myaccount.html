@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/cfcc846d5b.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nøklevann: Velkommen!</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/myaccount.css">
+    <script src="js/register.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="bg-image bg-image-my-account">
+            <nav>
+                <div class="logo">
+                    <a href="https://elanetto.github.io/FED1-PE1-elanetto/">Nøklevann</a>
+                </div>
+                <div class="navigation">
+                    <ul>
+                        <a href="https://elanetto.github.io/FED1-PE1-elanetto/"><li>Hjem</li></a>
+                        <a href="#"><li>+ Nytt Blogginnlegg</li></a>
+                        <a href="#"><li><i class="fa-solid fa-user"></i> Min Bruker</li></a>
+                    </ul>
+                </div>
+            </nav>
+            <div class="center-content">
+                <div class="title-index title-my-account">
+                    <h1>Velkommen, <span class="brukernavn"></span></h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div id="my-account">
+        <h2>Min Bruker</h2>
+        <div class="my-user-info">
+            <div>
+                <p><span class="bold">Brukernavn:</span> <span class="username"></span></p>
+                <p><span class="bold">Epost:</span> <span class="user-email"></span></p>
+                <p>&nbsp;</p>
+                <p>Vil du bytte passord? Trykk <a href="#">her</a></p>
+                <button id="log-out-btn" class="button">Logg ut</button>
+            </div>
+            <div class="profile-image-box">
+                <p><span class="bold">Mitt profilbilde:</span></p>
+                <div class="profile-image-circle"></div>
+            </div>
+            <div class="change-images-box">
+                <p><span class="bold">Endre profilbilde:</span></p>
+                <input class="input-texfield" type="text" id="profile-image-change" accept="link" placeholder="Link til nytt profilbilde (1024 x 1024px)">
+                <button id="change-profile-image-btn" class="button">Bytt profilbilde</button>
+                <p>&nbsp;</p>
+                <p><span class="bold">Endre profilbanner:</span></p>
+                <input class="input-texfield" type="text" id="profile-banner-change" accept="link" placeholder="Link til ny profilbanner (2800 x 600px)">
+                <button id="change-profile-banner-btn" class="button">Bytt profilbanner</button>
+            </div>
+        </div>
+    </div>
+    <div id="my-blog-posts"></div>
+    <footer>
+        <ul class="footer-links">
+            <a href="https://elanetto.github.io/FED1-PE1-elanetto/"><li>Hjem</li></a>
+            <a href="#"><li>Blog</li></a>
+            <a href="https://elanetto.github.io/FED1-PE1-elanetto/#about-us"><li>Om Oss</li></a>
+        </ul>
+    </footer>
+</body>
+</html>
