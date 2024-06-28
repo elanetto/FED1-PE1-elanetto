@@ -54,10 +54,11 @@ h2 {
 
 .my-user-info a {
     color: black;
+    text-decoration: underline;
 }
 
 .my-user-info a:hover {
-    text-decoration: underline;
+    text-decoration:double underline;
 }
 
 .change-images-box {
