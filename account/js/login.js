@@ -60,7 +60,7 @@ loginButton.addEventListener('click', async function(event) {
             const username = data.data.name;
             sessionStorage.setItem('accessToken', accessToken);
             sessionStorage.setItem('username', username);
-            window.location.href = '../post/index.html';
+            window.location.href = '/account/myaccount.html';
         } else {
             errorMessageLogin.textContent = data.message || 'Feil brukernavn eller passord';
             errorMessageLogin.style.display = 'block';
