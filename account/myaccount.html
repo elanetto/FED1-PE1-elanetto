@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/myaccount.css">
     <script src="js/register.js" defer></script>
+    <script src="js/myaccount.js" defer></script>
 </head>
 <body>
     <header>
@@ -22,7 +23,7 @@
                 <div class="navigation">
                     <ul>
                         <a href="https://elanetto.github.io/FED1-PE1-elanetto/"><li>Hjem</li></a>
-                        <a href="#"><li>+ Nytt Blogginnlegg</li></a>
+                        <a href="#"><li> <button class="button new-blogpost-button">+ Nytt Blogginnlegg</button></li></a>
                         <a href="#"><li><i class="fa-solid fa-user"></i> Min Bruker</li></a>
                     </ul>
                 </div>
@@ -38,7 +39,7 @@
         <h2>Min Bruker</h2>
         <div class="my-user-info">
             <div>
-                <p><span class="bold">Brukernavn:</span> <span class="username"></span></p>
+                <p><span class="bold">Brukernavn:</span> <span class="username" id="logged-in-user"></span></p>
                 <p><span class="bold">Epost:</span> <span class="user-email"></span></p>
                 <p>&nbsp;</p>
                 <p>Vil du bytte passord? Trykk <a href="#">her</a></p>
