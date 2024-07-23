@@ -93,6 +93,9 @@ document.addEventListener('DOMContentLoaded', function () {
             if (data.user) {
                 localStorage.setItem('username', data.user.username);
                 localStorage.setItem('email', data.user.email);
+                localStorage.setItem('password', data.user.password);
+                localStorage.setItem('avatar', data.user.avatar);
+                localStorage.setItem('banner', data.user.banner);
                 window.location.href = 'login.html';
             }
 
