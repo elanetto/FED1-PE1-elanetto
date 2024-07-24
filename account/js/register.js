@@ -66,7 +66,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const user = {
             username: username,
             email: email,
-            password: password
+            password: password,
+            avatar: 'https://i.imgur.com/8CJ1Q1a.jpg',
+            banner: 'https://github.com/elanetto/FED1-PE1-elanetto/blob/main/assets/images/200kb-images/kewater_view-01.jpg?raw=true'
         };
         
         try {
