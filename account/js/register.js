@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
             username: username,
             email: email,
             password: password,
-            avatar: 'https://i.imgur.com/8CJ1Q1a.jpg',
+            avatar: 'https://github.com/elanetto/FED1-PE1-elanetto/blob/main/assets/images/user/avatar-user-default.png?raw=true',
             banner: 'https://github.com/elanetto/FED1-PE1-elanetto/blob/main/assets/images/200kb-images/kewater_view-01.jpg?raw=true'
         };
         
