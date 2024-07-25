@@ -32,7 +32,6 @@ const loginEmail = document.getElementById('login-email');
 const loginPassword = document.getElementById('login-password');
 const loginButton = document.getElementById('login-button');
 const errorMessageLogin = document.getElementById('login-error');
-// const loggedInUser = document.getElementById('logged-in-user');
 
 loginButton.addEventListener('click', async function(event) {
     event.preventDefault();
@@ -74,6 +73,15 @@ loginButton.addEventListener('click', async function(event) {
 }   
 );
 
+// fetch user information from local storage
+const user = {
+    username: username,
+    email: email,
+    password: password,
+    avatar: avatar,
+    banner: banner
+};
+
 // Log out from the user account:
 
 const logoutButton = document.getElementById('logout-button');
@@ -93,6 +101,7 @@ const profilePictureButton = document.getElementById('profile-picture-button');
 profilePictureButton.addEventListener('click', function(event) {
     event.preventDefault();
     profilePicture.src = profilePictureInput.value;
+    console.log('Profile picture changed');
 }
 );
 
@@ -105,6 +114,7 @@ const bannerPictureButton = document.getElementById('banner-picture-button');
 bannerPictureButton.addEventListener('click', function(event) {
     event.preventDefault();
     bannerPicture.src = bannerPictureInput.value;
+    console.log('Banner picture changed');
 }
 );
 
@@ -117,18 +127,7 @@ const loggedInUser = document.getElementById('logged-in-user');
 changeUsernameButton.addEventListener('click', function(event) {
     event.preventDefault();
     loggedInUser.innerHTML = `Logged in as: ${changeUsernameInput.value}`;
-}
-);
-
-// Make it possible to change the user bio:
-
-const changeBioInput = document.getElementById('change-bio-input');
-const changeBioButton = document.getElementById('change-bio-button');
-const bio = document.getElementById('bio');
-
-changeBioButton.addEventListener('click', function(event) {
-    event.preventDefault();
-    bio.innerHTML = changeBioInput.value;
+    console.log('Username changed');
 }
 );
 
@@ -140,16 +139,5 @@ const changePasswordButton = document.getElementById('change-password-button');
 changePasswordButton.addEventListener('click', function(event) {
     event.preventDefault();
     console.log('Password changed');
-}
-);
-
-// Make it possible to change the user email:
-
-const changeEmailInput = document.getElementById('change-email-input');
-const changeEmailButton = document.getElementById('change-email-button');
-
-changeEmailButton.addEventListener('click', function(event) {
-    event.preventDefault();
-    console.log('Email changed');
 }
 );
