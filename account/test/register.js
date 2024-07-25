@@ -1,26 +1,3 @@
-// show password code from https://www.w3schools.com/howto/howto_js_toggle_password.asp
-const showPasswordBtn = document.getElementById("show-password");
-
-function showPassword() {
-    const passwordInput = document.getElementById("password-register");
-    if (passwordInput.type === "password") {
-        passwordInput.type = "text";
-    } else {
-        passwordInput.type = "password";
-    }
-};
-
-// Toggle eye icon when clicking on it:
-const eyeContainerEl = document.querySelector('.eye-container');
-
-eyeContainerEl.addEventListener("click", () => {
-    for (let i = 0; i < eyeContainerEl.children.length; i++) {
-        eyeContainerEl.children[i].classList.toggle("hide");
-    }
-    showPassword();
-});
-
-// Register new user & check if input is OK:
 document.addEventListener('DOMContentLoaded', function () {
     const errorMessage = document.getElementById('register-error');
     const registerBtn = document.getElementById('register-btn');
@@ -36,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (username.length < 2 || email.length < 2 || password.length < 2) {
             errorMessage.style.display = 'block';
-            errorMessage.innerHTML = '* Vennligst fyll inn alle feltene *';
             return;
         }
 
@@ -65,11 +41,19 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         const user = {
-            username: username,
+            name: username,
             email: email,
-            password: password,
-            avatar: 'https://github.com/elanetto/FED1-PE1-elanetto/blob/main/assets/images/user/avatar-user-default.png?raw=true',
-            banner: 'https://github.com/elanetto/FED1-PE1-elanetto/blob/main/assets/images/200kb-images/kewater_view-01.jpg?raw=true'
+            bio: "Default bio",
+            avatar: {
+                url: 'https://github.com/elanetto/FED1-PE1-elanetto/blob/main/assets/images/user/avatar-user-default.png?raw=true',
+                alt: "User Avatar"
+            },
+            banner: {
+                url: 'https://github.com/elanetto/FED1-PE1-elanetto/blob/main/assets/images/200kb-images/kewater_view-01.jpg?raw=true',
+                alt: "User Banner"
+            },
+            venueManager: true,
+            password: password
         };
 
         try {
@@ -84,21 +68,18 @@ document.addEventListener('DOMContentLoaded', function () {
             const data = await response.json();
             console.log(data);
 
-            // check if user already exists in API database and show error message
             if (data.errors) {
                 errorMessage.style.display = 'block';
-                errorMessage.innerHTML = data.errors.map(error => error.message).join(', ');
+                errorMessage.innerHTML = data.errors.map(error => error.message).join('<br>');
                 console.log(data.errors);
                 return;
             }
 
-            // Send to login-page when user is made
-            if (data.user) {
-                localStorage.setItem('username', data.user.username);
-                localStorage.setItem('email', data.user.email);
-                localStorage.setItem('password', data.user.password);
-                localStorage.setItem('avatar', data.user.avatar);
-                localStorage.setItem('banner', data.user.banner);
+            if (data.email) {
+                localStorage.setItem('username', data.name);
+                localStorage.setItem('email', data.email);
+                localStorage.setItem('avatar', data.avatar.url);
+                localStorage.setItem('banner', data.banner.url);
                 window.location.href = 'login.html';
             }
 
@@ -108,10 +89,6 @@ document.addEventListener('DOMContentLoaded', function () {
             errorMessage.innerHTML = 'Noe gikk galt, prøv igjen senere.';
         }
 
-        // Check if form exists before trying to reset it
-        const registerForm = document.getElementById('register-form');
-        if (registerForm) {
-            registerForm.reset();
-        }
+        document.querySelector('.register-form').reset();
     });
 });
