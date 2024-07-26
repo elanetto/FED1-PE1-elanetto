@@ -25,14 +25,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     showPasswordBtn.addEventListener("click", showPassword);
 
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(String(email).toLowerCase());
+    }
+
     loginButton.addEventListener('click', async function(event) {
         event.preventDefault();
 
         const email = loginEmail.value.trim();
         const password = loginPassword.value.trim();
 
-        if (email.length === 0 || password.length === 0) {
-            errorMessageLogin.textContent = 'Epost eller passord mangler';
+        if (!validateEmail(email)) {
+            errorMessageLogin.textContent = 'Ugyldig e-postadresse';
+            errorMessageLogin.style.display = 'block';
+            return;
+        }
+
+        if (password.length === 0) {
+            errorMessageLogin.textContent = 'Passord mangler';
             errorMessageLogin.style.display = 'block';
             return;
         }
