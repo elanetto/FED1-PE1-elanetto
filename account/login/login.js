@@ -39,12 +39,14 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!validateEmail(email)) {
             errorMessageLogin.textContent = 'Ugyldig e-postadresse';
             errorMessageLogin.style.display = 'block';
+            console.log('Ugyldig e-postadresse');
             return;
         }
 
         if (password.length === 0) {
             errorMessageLogin.textContent = 'Passord mangler';
             errorMessageLogin.style.display = 'block';
+            console.log('Passord mangler');
             return;
         }
 
@@ -70,14 +72,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 const username = data.data.name;
                 sessionStorage.setItem('accessToken', accessToken);
                 sessionStorage.setItem('username', username);
+                console.log('Innlogging vellykket');
                 window.location.href = 'https://elanetto.github.io/FED1-PE1-elanetto/account/myaccount.html';
             } else {
                 errorMessageLogin.textContent = data.errors[0]?.message || 'Feil brukernavn eller passord';
+                console.log('Feil brukernavn eller passord');
                 errorMessageLogin.style.display = 'block';
             }
         } catch (error) {
             console.error('Det skjedde en feil under innloggingen', error);
             errorMessageLogin.textContent = 'Det skjedde en feil under innloggingen';
+            console.log('Det skjedde en feil under innloggingen');
             errorMessageLogin.style.display = 'block';
         }
     });
