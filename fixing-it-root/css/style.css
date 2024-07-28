@@ -1,8 +1,3 @@
-/* I do not think I need this file, I will probably delete it */
-
-
-
-/* 
 * {
     box-sizing: border-box;
 }
@@ -12,21 +7,27 @@
     --dark: #322E40;
     --gray: #D7D4E6;
     --green: #A0B17D;
+}
 
+.fa-solid {
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
 }
 
 .amatic-sc-regular {
     font-family: "Amatic SC", sans-serif;
     font-weight: 400;
     font-style: normal;
-  }
-  
+}
+
 .amatic-sc-bold {
     font-family: "Amatic SC", sans-serif;
     font-weight: 700;
     font-style: normal;
 }
-  
 
 body {
     margin: 0;
@@ -46,6 +47,16 @@ h1 {
     font-weight: 700;
     font-style: normal;
     font-size: 6rem;
+}
+
+h2, h3, h4 {
+    font-family: "Amatic SC", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.bold {
+    font-weight: 700;
 }
 
 .logo {
@@ -75,7 +86,6 @@ h1 {
     font-size: 2rem;
     padding-top: 1rem;
 }
-  
 
 header {
     display: flex;
@@ -124,14 +134,10 @@ li {
     list-style-type: none;
 }
 
-a {
-    text-decoration: none;
-}
-
 .about-us {
     display: flex;
     align-items: center;
-    justify-content:end;
+    justify-content: end;
     width: 100vw;
     background-color: var(--green);
     padding: 5rem;
@@ -162,12 +168,22 @@ a {
     gap: 1rem;
 }
 
+.register-form-inputs ul {
+    padding: 0;
+    list-style: none;
+}
+
 .register-form-inputs ul li {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
     padding: 1rem;
+    width: 100%;
+}
+
+.register-form-inputs ul li label {
+    flex: 1;
 }
 
 .register-form-inputs ul li input {
@@ -175,13 +191,22 @@ a {
     height: 30px;
 }
 
-.btn-admin {
+.eye-container {
+    cursor: pointer;
+}
+
+.eye-container i {
+    margin-left: 0.5rem;
+}
+
+.btn-admin, .button {
     background-color: var(--dark);
     color: var(--white);
-    padding: 1rem 3rem;
+    padding: 0.6rem 3rem;
     font-size: 1rem;
     border-radius: 6px;
     border-style: none;
+    cursor: pointer;
 }
 
 .btn-admin:hover {
@@ -228,18 +253,16 @@ a {
     display: none;
 }
 
-.fa-solid {
-    cursor: pointer;
-}
-
-.hide {
-    display: none;
-}
-
 .center-content {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100%;
+}
+
+.input-texfield {
+    width: 250px;
+    height: 2.5rem;
 }
 
 footer {
@@ -264,4 +287,88 @@ footer {
 
 .footer-links a:hover {
     text-decoration: underline;
-} */ 
+}
+
+.register-form-inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.register-form-inputs ul {
+    padding: 0;
+    list-style: none;
+}
+
+.register-form-inputs ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    width: 100%;
+}
+
+.register-form-inputs ul li label {
+    flex: 1;
+}
+
+.register-form-inputs ul li input {
+    width: 250px;
+    height: 30px;
+}
+
+.eye-container {
+    cursor: pointer;
+}
+
+.eye-container i {
+    margin-left: 0.5rem;
+}
+
+.btn-admin, .button {
+    background-color: var(--dark);
+    color: var(--white);
+    padding: 0.6rem 3rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    border-style: none;
+    cursor: pointer;
+}
+
+.btn-admin:hover {
+    background-color: var(--green);
+    color: var(--dark);
+}
+
+.btn-admin:active {
+    background-color: var(--green);
+    color: var(--dark);
+    font-style: italic;
+}
+
+.register-box {
+    background-color: #ffffffab;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    border-radius: 6px;
+}
+
+.register-box h1 {
+    text-align: center;
+    font-size: 4rem;
+}
+
+#register-error, #login-error {
+    color: red;
+    font-style: italic;
+    background-color: #ffffff88;
+    padding: 1rem;
+    border-radius: 6px;
+    display: none;
+}
