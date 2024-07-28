@@ -4,20 +4,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const loginPassword = document.getElementById('password-login');
     const loginButton = document.getElementById('login-btn');
     const errorMessageLogin = document.getElementById('login-error');
+    const forgotPasswordLink = document.getElementById('forgot-password-link');
 
-    if (!showPasswordBtn || !loginEmail || !loginPassword || !loginButton || !errorMessageLogin) {
+    if (!showPasswordBtn || !loginEmail || !loginPassword || !loginButton || !errorMessageLogin || !forgotPasswordLink) {
         console.error('One or more required elements are missing.');
         return;
     }
 
     function showPassword() {
-        const passwordInput = document.getElementById("password-login");
-        if (passwordInput.type === "password") {
-            passwordInput.type = "text";
+        if (loginPassword.type === "password") {
+            loginPassword.type = "text";
             showPasswordBtn.querySelector('.fa-eye-slash').classList.add('hide');
             showPasswordBtn.querySelector('.fa-eye').classList.remove('hide');
         } else {
-            passwordInput.type = "password";
+            loginPassword.type = "password";
             showPasswordBtn.querySelector('.fa-eye-slash').classList.remove('hide');
             showPasswordBtn.querySelector('.fa-eye').classList.add('hide');
         }
@@ -84,6 +84,38 @@ document.addEventListener('DOMContentLoaded', function() {
             errorMessageLogin.textContent = 'Det skjedde en feil under innloggingen';
             console.log('Det skjedde en feil under innloggingen');
             errorMessageLogin.style.display = 'block';
+        }
+    });
+
+    forgotPasswordLink.addEventListener('click', async function(event) {
+        event.preventDefault();
+
+        const email = prompt('Vennligst oppgi din e-postadresse for å tilbakestille passordet:');
+        
+        if (email && validateEmail(email)) {
+            try {
+                const response = await fetch('https://v2.api.noroff.dev/auth/forgot-password', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email: email })
+                });
+
+                const data = await response.json();
+                console.log(data); // Log response for debugging
+
+                if (response.ok) {
+                    alert('En e-post for tilbakestilling av passord har blitt sendt.');
+                } else {
+                    alert('Noe gikk galt. Vennligst prøv igjen senere.');
+                }
+            } catch (error) {
+                console.error('Det skjedde en feil under forespørselen om å tilbakestille passordet', error);
+                alert('Det skjedde en feil under forespørselen om å tilbakestille passordet.');
+            }
+        } else {
+            alert('Vennligst oppgi en gyldig e-postadresse.');
         }
     });
 });
