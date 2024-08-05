@@ -10,21 +10,21 @@
     <title>Nøklevann: Velkommen!</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/myaccount.css">
-    <script src="js/register.js" defer></script>
-    <script src="js/myaccount.js" defer></script>
+    <script src="../js/register.js" defer></script>
+    <script src="../js/myaccount.js" defer></script>
 </head>
 <body>
     <header>
         <div class="bg-image bg-image-my-account">
             <nav>
                 <div class="logo">
-                    <a href="https://elanetto.github.io/FED1-PE1-elanetto/">Nøklevann</a>
+                    <a href="../index.html">Nøklevann</a>
                 </div>
                 <div class="navigation">
                     <ul>
-                        <a href="https://elanetto.github.io/FED1-PE1-elanetto/"><li>Hjem</li></a>
-                        <a href="#"><li> <button class="button new-blogpost-button">+ Nytt Blogginnlegg</button></li></a>
-                        <a href="#"><li><i class="fa-solid fa-user"></i> Min Bruker</li></a>
+                        <a href="../index.html"><li>Hjem</li></a>
+                        <a href="../post/index.html"><li> <button class="button new-blogpost-button">+ Nytt Blogginnlegg</button></li></a>
+                        <a href="../account/myaccount.html"><li><i class="fa-solid fa-user"></i> Min Bruker</li></a>
                     </ul>
                 </div>
             </nav>
@@ -51,11 +51,11 @@
             </div>
             <div class="change-images-box">
                 <p><span class="bold">Endre profilbilde:</span></p>
-                <input class="input-texfield" type="text" id="profile-image-change" accept="link" placeholder="Link til nytt profilbilde (1024 x 1024px)">
+                <input class="input-texfield" type="text" id="profile-image-change" accept="link" placeholder="Link til nytt profilbilde (1024 x 1024px)" aria-label="link til nytt profilbilde">
                 <button id="change-profile-image-btn" class="button">Bytt profilbilde</button>
                 <p>&nbsp;</p>
                 <p><span class="bold">Endre profilbanner:</span></p>
-                <input class="input-texfield" type="text" id="profile-banner-change" accept="link" placeholder="Link til ny profilbanner (2800 x 600px)">
+                <input class="input-texfield" type="text" id="profile-banner-change" accept="link" placeholder="Link til ny profilbanner (2800 x 600px)" aria-label="link til nytt profilbanner">
                 <button id="change-profile-banner-btn" class="button">Bytt profilbanner</button>
             </div>
         </div>
@@ -63,9 +63,9 @@
     <div id="my-blog-posts"></div>
     <footer>
         <ul class="footer-links">
-            <a href="https://elanetto.github.io/FED1-PE1-elanetto/"><li>Hjem</li></a>
+            <a href="../index.html"><li>Hjem</li></a>
             <a href="#"><li>Blog</li></a>
-            <a href="https://elanetto.github.io/FED1-PE1-elanetto/#about-us"><li>Om Oss</li></a>
+            <a href="../index.html#about-us"><li>Om Oss</li></a>
         </ul>
     </footer>
 </body>

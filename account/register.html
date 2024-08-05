@@ -9,27 +9,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nøklevann: Registrer deg</title>
     <link rel="stylesheet" href="../css/style.css">
-    <script src="js/register.js" defer></script>
+    <script src="../js/register.js" defer></script>
 </head>
 <body>
     <header>
         <div class="bg-image bg-image-register">
             <nav>
                 <div class="logo">
-                    <a href="https://elanetto.github.io/FED1-PE1-elanetto/">Nøklevann</a>
+                    <a href="../index.html">Nøklevann</a>
                 </div>
                 <div class="navigation">
                     <ul>
-                        <a href="https://elanetto.github.io/FED1-PE1-elanetto/"><li>Hjem</li></a>
+                        <a href="../index.html"><li>Hjem</li></a>
                         <a href="#"><li>Blog</li></a>
-                        <a href="#about-us"><li>Om Oss</li></a>
+                        <a href="../index.html#about-us"><li>Om Oss</li></a>
                     </ul>
                 </div>
             </nav>
             <div class="center-content">
                 <div class="register-box">
                     <h1>Lag ny bruker</h1>
-                    <form class="register-form">
+                    <form id="register-form" class="register-form">
                         <div class="register-form-inputs">
                             <ul>
                                 <li>
@@ -42,7 +42,7 @@
                                 </li>
                                 <li>
                                     <label for="password-register">Passord: &nbsp;    
-                                        <span class="eye-container" onclick="showPassword()" id="show-password">
+                                        <span class="eye-container" id="show-password-register">
                                             <i class="fa-solid fa-eye-slash"></i>
                                             <i class="fa-solid fa-eye hide"></i>
                                         </span>
@@ -57,15 +57,18 @@
                             </p>
                         </div>
                     </form>
+                    <div id="register-success">
+                        Gratulerer! Du har registrert en ny bruker. Vennligst gå til <a href="login.html">Logg inn</a> siden for å logge inn.
+                    </div>
                 </div>
             </div>
         </div>
     </header>
     <footer>
         <ul class="footer-links">
-            <a href="https://elanetto.github.io/FED1-PE1-elanetto/"><li>Hjem</li></a>
+            <a href="../index.html"><li>Hjem</li></a>
             <a href="#"><li>Blog</li></a>
-            <a href="https://elanetto.github.io/FED1-PE1-elanetto/#about-us"><li>Om Oss</li></a>
+            <a href="../index.html#about-us"><li>Om Oss</li></a>
         </ul>
     </footer>
 </body>
