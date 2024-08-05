@@ -275,3 +275,26 @@ footer {
 .footer-links a:hover {
     text-decoration: underline;
 }
+
+#register-error {
+    display: none; 
+    color: red;
+}
+
+#register-success {
+    display: none; 
+    color: green; 
+    background-color: #ffffff88; 
+    padding: 1rem; 
+    border-radius: 6px;
+}
+
+.secret-links a {
+    color: white;
+    font-style: italic;
+    display: flex;
+}
+
+.secret-links a:hover {
+    text-decoration: underline;
+}
