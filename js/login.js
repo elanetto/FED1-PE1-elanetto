@@ -77,16 +77,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 const userEmail = JSON.stringify(data.data.email);
                 
                 localStorage.setItem("access_token", accessToken);
-                localStorage.setItem("name", username);
-                localStorage.setItem("avatar", avatar);
-                localStorage.setItem("banner", banner);
+                localStorage.setItem("username", username);
+                localStorage.setItem("avatar_url", avatar);
+                localStorage.setItem("banner_url", banner);
                 localStorage.setItem("email", userEmail);
 
-                // localStorage.setItem("access_token", JSON.stringify(result.data.accessToken));
-                // localStorage.setItem("user", JSON.stringify(result.data.name));
-                // localStorage.setItem("user_email", result.data.email);
-                // localStorage.setItem("avatar", result.data.avatar.url);
-                // localStorage.setItem("banner", result.data.banner.url);
                 console.log('Innlogging vellykket');
                 window.location.href = '../account/myaccount.html';
             } else {
