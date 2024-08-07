@@ -6,8 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const loginPassword = document.getElementById('password-login');
     const showPasswordBtn = document.getElementById('show-password-login');
 
-// adding text just to see what's wrong with guthub and js-files? Is it sourcetree?
-
     // Ensure all required elements are found
     if (!loginEmail || !loginButton || !errorMessageLogin || !loginPassword || !showPasswordBtn) {
         console.error('One or more required elements are missing.');
@@ -72,8 +70,20 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log("hello!");
 
             if (response.ok) {
-                // localStorage.setItem("access_token", result.data.accessToken);
-                // localStorage.setItem("user", result.data.name);
+                const accessToken = JSON.stringify(data.data.accessToken);
+                const username = JSON.stringify(data.data.name);
+                const avatar = JSON.stringify(data.data.avatar.url);
+                const banner = JSON.stringify(data.data.banner.url);
+                const userEmail = JSON.stringify(data.data.email);
+                
+                localStorage.setItem("access_token", accessToken);
+                localStorage.setItem("name", username);
+                localStorage.setItem("avatar", avatar);
+                localStorage.setItem("banner", banner);
+                localStorage.setItem("email", userEmail);
+
+                // localStorage.setItem("access_token", JSON.stringify(result.data.accessToken));
+                // localStorage.setItem("user", JSON.stringify(result.data.name));
                 // localStorage.setItem("user_email", result.data.email);
                 // localStorage.setItem("avatar", result.data.avatar.url);
                 // localStorage.setItem("banner", result.data.banner.url);
@@ -91,39 +101,4 @@ document.addEventListener('DOMContentLoaded', function() {
             errorMessageLogin.style.display = 'block';
         }
     });
-
-    // This part of the code assumes there is a forgotPasswordLink in your actual HTML
-    if (forgotPasswordLink) {
-        forgotPasswordLink.addEventListener('click', async function(event) {
-            event.preventDefault();
-
-            const email = prompt('Vennligst oppgi din e-postadresse for å tilbakestille passordet:');
-            
-            if (email && validateEmail(email)) {
-                try {
-                    const response = await fetch('https://v2.api.noroff.dev/auth/forgot-password', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({ email: email })
-                    });
-
-                    const data = await response.json();
-                    console.log(data); // Log response for debugging
-
-                    if (response.ok) {
-                        alert('En e-post for tilbakestilling av passord har blitt sendt.');
-                    } else {
-                        alert('Noe gikk galt. Vennligst prøv igjen senere.');
-                    }
-                } catch (error) {
-                    console.error('Det skjedde en feil under forespørselen om å tilbakestille passordet', error);
-                    alert('Det skjedde en feil under forespørselen om å tilbakestille passordet.');
-                }
-            } else {
-                alert('Vennligst oppgi en gyldig e-postadresse.');
-            }
-        });
-    }
 });
