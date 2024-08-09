@@ -38,7 +38,6 @@ logoutButton.addEventListener('click', function() {
 );
 
 // Make it possible to paste link to save a new profile picture:
-const profilePictureInput = document.getElementById('profile-picture-input');
 const profilePicture = document.getElementById('profile-picture');
 const profilePictureButton = document.getElementById('profile-picture-button');
 
@@ -49,13 +48,46 @@ const profilePictureButton = document.getElementById('profile-picture-button');
 // }
 // );
 
-profilePictureButton.addEventListener('click', function() {
+profilePictureButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    event.changeAvatar();
+
+    const profilePictureInput = document.getElementById('profile-picture-input').value;
+
+    const user = {
+        avatar: {
+            url: profilePictureInput,
+        }
+    };
+
+    try {
+        const response = fetch('https://v2.api.noroff.dev/social/profiles/elanetto', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Token': token
+            },
+            body: JSON.stringify(user)
+        });
+
+        const data = response.json();
+        console.log(data);
+
+        if (response.ok) {
+            console.log('Profilbilde endret');
+            localStorage.setItem('avatar', profilePictureInput);
+        }
+   
+    } catch (error) {
+        console.log(error);
+        console.log('Noe gikk galt, prøv igjen senere.');
+    }
+
     // create a function to change avatar url. 
     // idea: use access token and/or useremail from local storage to access
     // check out blog POST to check if qw can use that API to add to the user?
     // Use PostMan to test!
-}
-);
+});
 
 // Make it possible to paste link to save a new banner picture:
 const bannerPictureInput = document.getElementById('banner-picture-input');
