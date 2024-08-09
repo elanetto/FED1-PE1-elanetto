@@ -1,0 +1,43 @@
+
+#blogpost {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.blogpost-content {
+    width: 700px;
+    text-align: left;
+    display: block; 
+    margin: 0 auto; 
+}
+
+.blogpost-content {
+    align-items: left;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+}
+
+
+.bg-image-blogpost {
+    height: 300px;
+}
+
+.blogpost-image {
+    width: 700px;
+    height: 300px;
+    background-position-x: center;
+    object-fit: cover;
+}
+
+.share-btn-div {
+    display: flex;
+    justify-content: right;
+}
+
+.share-btn:hover {
+    background-color: var(--green);
+    color: var(--dark);
+}

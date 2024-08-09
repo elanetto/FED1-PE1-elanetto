@@ -9,36 +9,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nøklevann: Nytt Blogginnlegg</title>
     <link rel="stylesheet" href="../css/style.css">
-    <script src="js/register.js" defer></script>
+    <link rel="stylesheet" href="../css/createblogpost.css">
+    <script src="../js/newblogpost.js" defer></script>
 </head>
 <body>
     <header>
-        <div class="bg-image bg-image-register">
+        <div class="bg-image bg-image-new-blogpost">
             <nav>
                 <div class="logo">
                     <a href="https://elanetto.github.io/FED1-PE1-elanetto/">Nøklevann</a>
                 </div>
                 <div class="navigation">
                     <ul>
-                        <a href="https://elanetto.github.io/FED1-PE1-elanetto/"><li>Hjem</li></a>
+                        <a href="index.html"><li>Hjem</li></a>
                         <a href="#"><li>Blog</li></a>
                         <a href="#about-us"><li>Om Oss</li></a>
                     </ul>
                 </div>
             </nav>
             <div class="center-content">
-                <div class="register-box welcome-box">
-                    <h1>Velkommen tilbake, <span class="welcome-username"></span></h1>
-                </div>
+                    <h2 class="h2-new-size nytt-blogginnlegg-velkommen">God dag, <span id="welcome-username"></span>!</h2>
             </div>
         </div>
     </header>
-    <div>Hello</div>
+    <div id="blog-title-area">
+        <h2 class="h2-new-size">Skriv nytt blogginnlegg</h2>
+    </div>
+    <div id="new-blogpost-area">
+        <form id="new-blogpost-form">
+            <div class="new-blogpost-form-inputs">
+                <ul>
+                    <li>
+                        <label for="blog-title">Tittel:</label>
+                        <input id="blog-title" placeholder="Tittel" type="text">
+                    </li>
+                    <li>
+                        <label for="blog-bilde">Bilde:</label>
+                        <input id="blog-bilde-input" placeholder="Lim inn link til bilde her" type="text">
+                        <button id="test-blog-bilde-btn">Test bildet</button>
+                        <img class="blog-image-preview" src="../assets/images/blogpost/placeholder_blog_image.png" alt="blogpost image">
+                    </li>
+                    <li>
+                        <label for="blog-category">Kategori:</label>
+                        <input id="blog-category" placeholder="Kategori" type="text">
+                        <p class="mini-info-text">Informasjon om hvordan man legger inn emneknagger eller noe</p>
+                    </li>
+                    <li>
+                        <label for="blog-content">Innhold:</label>
+                        <textarea id="blog-content" placeholder="Innhold" type="text"></textarea>
+                    </li>
+                </ul>
+                <div id="new-blogpost-error">* Vennligst fyll inn alle feltene *</div>
+                <button class="btn-admin" id="new-blogpost-btn" type="submit">Publiser</button>
+            </div>
+        </form>
+        <div id="new-blogpost-success">
+            <p>Blogginnlegget er publisert!</p>
+        </div>
+    </div>
     <footer>
         <ul class="footer-links">
-            <a href="https://elanetto.github.io/FED1-PE1-elanetto/"><li>Hjem</li></a>
+            <a href="../index.html"><li>Hjem</li></a>
             <a href="#"><li>Blog</li></a>
-            <a href="https://elanetto.github.io/FED1-PE1-elanetto/#about-us"><li>Om Oss</li></a>
+            <a href="../index.html#about-us"><li>Om Oss</li></a>
         </ul>
     </footer>
 </body>

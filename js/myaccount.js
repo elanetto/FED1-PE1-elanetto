@@ -14,9 +14,9 @@ console.log(banner)
 console.log(token)
 
 // Add username and email to html DOM
-document.querySelector('.brukernavn').innerHTML = (" " + JSON.parse(username));
-document.querySelector('.brukernavn-body').innerHTML = (" " + JSON.parse(username));
-document.querySelector('.user-email').innerHTML = (" " + JSON.parse(email));
+document.querySelector('.brukernavn').innerHTML =  "&nbsp;" + JSON.parse(username);
+document.querySelector('.brukernavn-body').innerHTML =  "&nbsp;" + JSON.parse(username);
+document.querySelector('.user-email').innerHTML = "&nbsp;" + JSON.parse(email);
 
 // add avatar-url from local storage
 const avatarImageEl = document.querySelector('.profile-image-circle')
