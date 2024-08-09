@@ -1,0 +1,65 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --white: #FFF;
+    --dark: #322E40;
+    --gray: #D7D4E6;
+    --green: #A0B17D;
+}
+
+.bg-image-new-blogpost {
+    height: 300px;
+}
+
+#blog-title-area {
+    background-color: var(--green);
+    padding: 0.5 rem;
+    text-align: center;
+}
+
+.h2-new-size {
+    font-size: 3rem;
+}
+
+.blog-image-preview {
+    height: 400px;
+    background-position-x: center;
+    background-size: cover;
+    width: auto;
+}
+
+#new-blogpost-area {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.new-blogpost-form-inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.new-blogpost-form-inputs ul li {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.mini-info-text {
+    font-size: 0.8rem;
+}
+
+.nytt-blogginnlegg-velkommen {
+    color: var(--white);
+    filter: drop-shadow(0 0 0.25rem #322E40);
+}
+
+#blog-content {
+    width: 100%;
+    height: 400px;
+}
