@@ -22,7 +22,7 @@
 
 
 .bg-image-blogpost {
-    height: 300px;
+    height: 100px;
 }
 
 .blogpost-image {
@@ -40,4 +40,64 @@
 .share-btn:hover {
     background-color: var(--green);
     color: var(--dark);
+}
+
+.profile-image-circle {
+    height: 70px;
+    width: 70px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    background-position-x: center;
+    background-size: cover;
+}
+
+.blogpost-tittel-og-forfatter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.forfatter-box {
+    padding: 1rem;
+}
+
+.top-of-blog-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+#fullscreen-image-view {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Black background with opacity */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+#fullscreen-image-view img {
+    max-width: 90%;
+    max-height: 90%;
+    margin: auto;
+    display: block;
+}
+
+#close-fullscreen-image {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
 }

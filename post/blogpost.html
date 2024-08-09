@@ -11,8 +11,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/createblogpost.css">
     <link rel="stylesheet" href="../css/blogpost.css">
-    <script src="../js/register.js" defer></script>
-    <script src="../js/myaccount.js" defer></script>
+    <script src="../js/blogpost.js" defer></script>
 </head>
 <body>
     <header>
@@ -33,24 +32,43 @@
             </div>
         </div>
     </header>
-    <div id="blogpost">
+    <div id="blogpost-area">
         <div class="blogpost-content">
-            <p class="blog-published-date mini-info-text">Publisert dato dato år</p>
+            <div class="top-of-blog-info">
+                <div>
+                    <p class="blog-published-date mini-info-text">Publisert dato dato år</p>
+                </div>
+                <div>
+                    <p class="blogpost-category mini-info-text">Tags</p>
+                </div>
+            </div>
             <div>
                 <img class="blogpost-image" src="../assets/images/blogpost/placeholder_blog_image.png" alt="blogpost image">
             </div>
-            <div class="blogpost-text">
-                <h2 class="blogpost-title h2-new-size">Blogginnlegg tittel</h2>
-                <p class="blogpost-category mini-info-text">Kategori: Kategorinavn (skal vi lage en dropdownmeny-liste heller? Også bare èn kategori pr post?)</p>
+            <div class="blogpost-tittel-og-forfatter">
+                <div>
+                    <h2 class="blogpost-title h2-new-size">Blogginnlegg tittel</h2>
+                </div>
+                <div class="forfatter-box">
+                    <img class="profile-image-circle author-avatar" src="../assets/images/user/avatar-user-default.png" alt="forfatteren">
+                    <p class="blogpost-author">Forfatter</p>
+                </div>
             </div>
-            <div class="blogpost-content">
+            <div id="blog-content">
                 Teksten kommer her
             </div>
             <div class="share-btn-div">
-                <button class="button share-btn">Del blogginnlegget</button>  
+                <button class="button share-btn" id="copy-link-btn">Kopier link til Blogginnlegget</button>  
             </div>  
         </div>
     </div>
+
+    <!-- Fullscreen Image View -->
+    <div id="fullscreen-image-view" class="hidden">
+        <span id="close-fullscreen-image">&times;</span>
+        <img id="fullscreen-image" src="" alt="Fullscreen blogpost image">
+    </div>
+
     <footer>
         <ul class="footer-links">
             <a href="../index.html"><li>Hjem</li></a>
