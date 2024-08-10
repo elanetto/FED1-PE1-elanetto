@@ -101,3 +101,7 @@
 .hidden {
     display: none;
 }
+
+.blogpost-author {
+    text-align: center;
+}
