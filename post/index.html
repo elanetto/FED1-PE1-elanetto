@@ -50,9 +50,15 @@
                         <img class="blog-image-preview" src="../assets/images/blogpost/placeholder_blog_image.png" alt="blogpost image">
                     </li>
                     <li>
-                        <label for="blog-category">Kategori:</label>
-                        <input id="blog-category" placeholder="Kategori" type="text">
-                        <p class="mini-info-text">Informasjon om hvordan man legger inn emneknagger eller noe</p>
+                        <label for="blog-tag">Velg kategori:</label>
+                        <select id="blog-tag" name="tag" required>
+                            <option value="" disabled selected>Velg en kategori</option>
+                            <option value="Water-sports">Ro og Padling</option>
+                            <option value="Hiking">Turer</option>
+                            <option value="Nature">Natur</option>
+                            <option value="Animals">Dyr</option>
+                            <option value="Leisure">Fritid</option>
+                        </select>
                     </li>
                     <li>
                         <label for="blog-content">Innhold:</label>
@@ -60,7 +66,7 @@
                     </li>
                 </ul>
                 <div id="new-blogpost-error">* Vennligst fyll inn alle feltene *</div>
-                <button class="btn-admin" id="new-blogpost-btn" type="submit">Publiser</button>
+                <button class="btn-admin" id="submit-blogpost-btn" type="submit">Publiser</button>
             </div>
         </form>
         <div id="new-blogpost-success">
