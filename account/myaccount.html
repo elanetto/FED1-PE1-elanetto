@@ -10,12 +10,13 @@
     <title>Nøklevann: Velkommen!</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/myaccount.css">
-    <script src="../js/register.js" defer></script>
+    <link rel="stylesheet" href="../css/viewblogposts.css">
     <script src="../js/myaccount.js" defer></script>
+    <script src="../js/viewmyblogposts.js" defer></script>
 </head>
 <body>
     <header>
-        <div class="bg-image bg-image-my-account">
+        <div class="bg-image bg-image-my-account" id="banner-picture">
             <nav>
                 <div class="logo">
                     <a href="../index.html">Nøklevann</a>
@@ -43,7 +44,7 @@
                 <p><span class="bold">Epost:</span> <span class="user-email">Placeholder</span></p>
                 <p>&nbsp;</p>
                 <p>Vil du bytte passord? Trykk <a href="#">her</a></p>
-                <button id="log-out-btn" class="button">Logg ut</button>
+                <button id="logout-button" class="button">Logg ut</button>
             </div>
             <div class="profile-image-box">
                 <p><span class="bold">Mitt profilbilde:</span></p>
@@ -55,12 +56,17 @@
                 <button id="profile-picture-button" class="button">Bytt profilbilde</button>
                 <p>&nbsp;</p>
                 <p><span class="bold">Endre profilbanner:</span></p>
-                <input class="input-texfield" type="text" id="profile-banner-change" accept="link" placeholder="Link til ny profilbanner (2800 x 600px)" aria-label="link til nytt profilbanner">
-                <button id="change-profile-banner-btn" class="button">Bytt profilbanner</button>
+                <input class="input-texfield" type="text" id="banner-picture-input" accept="link" placeholder="Link til ny profilbanner (2800 x 600px)" aria-label="link til nytt profilbanner">
+                <button id="banner-picture-button" class="button">Bytt profilbanner</button>
             </div>
         </div>
     </div>
-    <div id="my-blog-posts"></div>
+    <div class="my-blogposts-title">
+        <h2>Mine blogposter</h2>
+    </div>
+    <div id="my-blog-posts">
+        
+    </div>
     <footer>
         <ul class="footer-links">
             <a href="../index.html"><li>Hjem</li></a>

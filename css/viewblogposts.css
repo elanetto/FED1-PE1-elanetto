@@ -1,0 +1,60 @@
+:root {
+    --white: #FFF;
+    --dark: #322E40;
+    --gray: #D7D4E6;
+    --green: #A0B17D;
+}
+
+.my-blogposts-title {
+    font-size: 3rem;
+    text-align: center;
+    margin: 0;
+    background-color: var(--gray);
+}
+
+#my-blog-posts {
+    padding: 20px;
+    background-color: var(--gray);
+}
+
+.blog-post {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    width: 300px;
+    background-color: var(--white)
+}
+
+.blog-post img {
+    max-width: 100%;
+}
+
+#my-blog-posts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.mini-button {
+    background-color: var(--gray);
+    color: var(--dark);
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+    border-radius: 6px;
+    border-style: none;
+    cursor: pointer;
+    margin: 0.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.mini-button:hover {
+    background-color: var(--dark);
+    color: var(--white);
+}
+
+.blog-admin-buttons {
+    display: flex;
+    justify-content: flex-end;
+}
