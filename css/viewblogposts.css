@@ -5,6 +5,25 @@
     --green: #A0B17D;
 }
 
+.blogpost-link {
+    text-decoration: none;
+    color: var(--dark);
+    display: block; /* Ensure the link covers the full area */
+    width: 100%;
+    height: 100%;
+    cursor: pointer; /* Add cursor pointer here */;
+}
+
+.blog-post-preview:hover {
+    text-decoration: underline;
+}
+
+
+.blogpost-link, 
+.blog-post-preview {
+    cursor: pointer;
+}
+
 .my-blogposts-title {
     font-size: 3rem;
     text-align: center;

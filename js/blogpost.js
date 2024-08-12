@@ -1,13 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     const blogID = localStorage.getItem("id");
+    const selectedPostId = localStorage.getItem('selectedPostId');
 
     const requestOptions = {
         method: "GET",
         redirect: "follow"
     };
     
-    fetch("https://v2.api.noroff.dev/blog/posts/elanetto/" + blogID, requestOptions)
+    fetch("https://v2.api.noroff.dev/blog/posts/elanetto/" + selectedPostId, requestOptions)
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Network response was not ok");
