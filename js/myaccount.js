@@ -1,20 +1,16 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Fetch local storage data
     const username = localStorage.getItem('username');
-    const cleanedUsername = username ? username.trim().replace(/^"|"$/g, '') : null; // Clean up if needed
+    const cleanedUsername = username ? username.trim().replace(/^"|"$/g, '') : null;
     
     const email = localStorage.getItem("email");
-    const cleanedEmail = email ? email.trim().replace(/^"|"$/g, '') : null; // Clean up if needed
+    const cleanedEmail = email ? email.trim().replace(/^"|"$/g, '') : null;
 
     const avatar = localStorage.getItem("avatar_url");
     const banner = localStorage.getItem("banner_url");
-    const token = localStorage.getItem("access_token");
 
-    console.log("username: " + username);
-    console.log("email: " + email);
-    console.log("avatar: " + avatar);
-    console.log("banner: " + banner);
-    console.log("token: " + token);
+    const token = localStorage.getItem("access_token");
+    const cleanedToken = token ? token.trim().replace(/^"|"$/g, '') : null;
 
     // Add username and email to HTML DOM
     const brukernavnElements = document.querySelectorAll('.brukernavn, .brukernavn-body');
@@ -27,18 +23,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Add avatar-url from local storage
     const avatarImageEl = document.querySelector('.profile-image-circle');
-    if (avatarImageEl) {
+    if (avatarImageEl && avatar) {
         avatarImageEl.style.backgroundImage = `url(${avatar})`;
-    } else {
-        console.warn('Avatar element not found.');
     }
 
     // Add banner-url from local storage
     const bannerImageEl = document.querySelector('.bg-image-my-account');
-    if (bannerImageEl) {
+    if (bannerImageEl && banner) {
         bannerImageEl.style.backgroundImage = `url(${banner})`;
-    } else {
-        console.warn('Banner element not found.');
     }
 
     // Log out from the user account
@@ -49,82 +41,85 @@ document.addEventListener('DOMContentLoaded', function () {
             sessionStorage.clear();
             window.location.href = '/account/login.html';
         });
-    } else {
-        console.warn('Logout button not found.');
     }
 
     // Make it possible to paste link to save a new profile picture
     const profilePictureInput = document.getElementById('profile-picture-input');
-    const profilePicture = document.getElementById('profile-picture');
     const profilePictureButton = document.getElementById('profile-picture-button');
 
-    if (profilePictureInput && profilePicture && profilePictureButton) {
+    if (profilePictureInput && profilePictureButton) {
         profilePictureButton.addEventListener('click', function (event) {
             event.preventDefault();
             const newAvatarUrl = profilePictureInput.value;
 
-            // Update the profile picture preview
-            profilePicture.src = newAvatarUrl;
-            console.log('Profile picture changed');
+            const myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+            myHeaders.append("X-Noroff-API-Key", "c7635231-b3f6-470b-97a5-0f6b141e33b2"); //this ONLY works for elanetto. The API key is unique for each user. This one is fetched through Postman
+            myHeaders.append("Authorization", "Bearer " + cleanedToken);
 
-            // Send the new avatar URL to the server
-            const user = {
-                avatar: {
-                    url: newAvatarUrl
+            const raw = JSON.stringify({
+                "avatar": {
+                    "url": newAvatarUrl,
+                    "alt": "Avatar"
                 }
+            });
+
+            const requestOptions = {
+                method: "PUT",
+                headers: myHeaders,
+                body: raw,
+                redirect: "follow"
             };
 
-            fetch('https://v2.api.noroff.dev/social/profiles/elanetto', {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}` // Correct header for token
-                },
-                body: JSON.stringify(user)
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (data) {
-                        console.log('Profile picture updated:', data);
-                        localStorage.setItem('avatar_url', newAvatarUrl); // Save the new avatar URL
-
-                        // Reload the page to reflect changes
-                        location.reload();
-                    } else {
-                        console.log('Error: No data returned');
-                    }
+            fetch("https://v2.api.noroff.dev/social/profiles/elanetto", requestOptions)
+                .then((response) => response.text())
+                .then((result) => {
+                    console.log('Profile picture changed:', result);
+                    localStorage.setItem('avatar_url', newAvatarUrl);
+                    alert('Profilbilde endret');
+                    location.reload(); // Reload the page after successful update
                 })
-                .catch(error => {
-                    console.error('Error updating profile picture:', error);
-                    alert('Noe gikk galt, prøv igjen senere.');
-                });
+                .catch((error) => console.error(error));
         });
-    } else {
-        console.warn('Profile picture elements not found.');
     }
 
     // Make it possible to paste link to save a new banner picture
     const bannerPictureInput = document.getElementById('banner-picture-input');
-    const bannerPicture = document.getElementById('banner-picture');
     const bannerPictureButton = document.getElementById('banner-picture-button');
 
-    if (bannerPictureInput && bannerPicture && bannerPictureButton) {
+    if (bannerPictureInput && bannerPictureButton) {
         bannerPictureButton.addEventListener('click', function (event) {
             event.preventDefault();
             const newBannerUrl = bannerPictureInput.value;
 
-            // Update the banner picture preview
-            bannerPicture.src = newBannerUrl;
-            console.log('Banner picture changed');
+            const myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+            myHeaders.append("X-Noroff-API-Key", "c7635231-b3f6-470b-97a5-0f6b141e33b2");
+            myHeaders.append("Authorization", "Bearer " + cleanedToken);
 
-            // Save the new banner URL to local storage
-            localStorage.setItem('banner_url', newBannerUrl);
+            const raw = JSON.stringify({
+                "banner": {
+                    "url": newBannerUrl,
+                    "alt": "Banner"
+                }
+            });
 
-            // Reload the page to reflect changes
-            location.reload();
+            const requestOptions = {
+                method: "PUT",
+                headers: myHeaders,
+                body: raw,
+                redirect: "follow"
+            };
+
+            fetch("https://v2.api.noroff.dev/social/profiles/elanetto", requestOptions)
+                .then((response) => response.text())
+                .then((result) => {
+                    console.log('Banner picture changed:', result);
+                    localStorage.setItem('banner_url', newBannerUrl);
+                    alert('Bannerbilde endret');
+                    location.reload(); // Reload the page after successful update
+                })
+                .catch((error) => console.error(error));
         });
-    } else {
-        console.warn('Banner picture elements not found.');
     }
-
 });
