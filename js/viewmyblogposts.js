@@ -26,26 +26,34 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         posts.forEach((post) => {
+            const postId = post.id; // Get the ID of the post
             const title = post.title || 'No title';
-            const body = post.body || 'No content';
             const image = post.media.url || '';
-            const date = new Date(post.created).toLocaleDateString() || 'No date';
-            const tags = (post.tags || []).join(', ') || 'No tags';
-            const categories = (post.categories || []).join(', ') || 'No categories';
 
             const postElement = document.createElement('div');
             postElement.classList.add('blog-post');
 
             postElement.innerHTML = `
-                <div class="blog-post-preview">
-                <div class="blog-admin-buttons">
-                <button class="mini-button edit-button"><i class="fa-solid fa-pen-to-square"></i></button>
-                <button class="mini-button delete-button"><i class="fa-solid fa-trash"></i></button>
+                <div class="blog-post-preview" data-post-id="${postId}">
+                    <div class="blog-admin-buttons">
+                        <button class="mini-button edit-button"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button class="mini-button delete-button"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                    ${image ? `<img src="${image}" alt="${title}">` : ''}
+                    <h2>${title}</h2>
                 </div>
-                ${image ? `<img src="${image}" alt="${title}">` : ''}
-                <h2>${title}</h2>
-                </div>
-                `;
+            `;
+
+            // Add click event listener to the entire post preview element
+            postElement.addEventListener('click', function () {
+                localStorage.setItem('selectedPostId', postId);
+                window.location.href = '../post/blogpost.html'; // Redirect to the blog post page
+            });
+
+            // Add click event listener to save post ID to local storage
+            postElement.addEventListener('click', function () {
+                localStorage.setItem('selectedPostId', postId);
+            });
 
             myBlogPosts.appendChild(postElement);
         });
