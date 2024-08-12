@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    
     // Retrieve the post ID from local storage
     const postId = localStorage.getItem('selectedPostId');
     const cleanedPostId = postId ? postId.trim().replace(/^"|"$/g, '') : null;
