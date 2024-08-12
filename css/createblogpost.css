@@ -31,7 +31,7 @@
     object-fit: cover;
 }
 
-#new-blogpost-area {
+#new-blogpost-area, #new-blogpost-area-edit-page {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -79,4 +79,18 @@
 #blog-content-edit-page {
     width: 100%;
     height: 400px;
+}
+.edit-page-delete-button {
+    background-color: var(--dark);
+    color: var(--white);
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    border-style: none;
+    cursor: pointer;
+}
+
+.edit-page-delete-button:hover {
+    background-color: var(--green);
+    color: var(--dark);
 }
