@@ -259,7 +259,7 @@ footer {
     display: flex;
     flex-direction: column;
     align-self: flex-end;
-    margin-top: auto;
+    margin-top: 4rem;
     padding: 2rem;
 }
 
