@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nøklevann: Nytt Blogginnlegg</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/viewblogposts.css">
     <link rel="stylesheet" href="../css/createblogpost.css">
     <script src="../js/edit.js" defer></script>
 </head>
@@ -66,7 +67,10 @@
                         <textarea id="blog-content-edit-page" placeholder="Innhold" type="text"></textarea>
                     </li>
                 </ul>
-                <button class="btn-admin" id="submit-blogpost-btn-edit-page" type="submit">Publiser</button>
+                <div class="button-div">
+                    <button class="btn-admin" id="submit-blogpost-btn-edit-page" type="submit">Publiser</button>
+                    <button class="mini-button delete-button edit-page-delete-button"><i class="fa-solid fa-trash"></i></button>
+                </div>
             </div>
         </form>
     </div>

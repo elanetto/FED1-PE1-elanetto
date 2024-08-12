@@ -1,67 +1,56 @@
 document.addEventListener('DOMContentLoaded', function() {
-
     const blogID = localStorage.getItem("id");
     const selectedPostId = localStorage.getItem('selectedPostId');
+    console.log("Selected Post ID:", selectedPostId);
+
+    const fetchUrl = "https://v2.api.noroff.dev/blog/posts/elanetto/" + selectedPostId;
+    console.log("Fetch URL:", fetchUrl);
 
     const requestOptions = {
         method: "GET",
         redirect: "follow"
     };
-    
-    fetch("https://v2.api.noroff.dev/blog/posts/elanetto/" + selectedPostId, requestOptions)
+
+    fetch(fetchUrl, requestOptions)
         .then((response) => {
             if (!response.ok) {
+                console.error("Network response was not ok:", response.status);
+                if (response.status === 404) {
+                    alert("The requested blog post was not found.");
+                }
                 throw new Error("Network response was not ok");
             }
             return response.json();
         })
         .then((result) => {
             const data = result.data;
-            
+            if (!data) {
+                console.error("No data returned in response");
+                return;
+            }
+
             // Logging the blog ID to the console
             const blogId = data.id;
-            console.log("This is the blog ID: " + blogId);
+            console.log("This is the blog ID: " + selectedPostId);
 
-            // Accessing other data
-            const title = data.title;
-            const body = data.body;
-            const tags = data.tags;
-            const blogImage = data.media.url;
-            const author = data.author.name;
-            const publishedDateOfBlog = data.created;
-            const authorAvatar = data.author.avatar.url;
-            
-            // Storing data in localStorage
+            // Accessing and storing other data
             localStorage.setItem("blog_id", blogId);
-            localStorage.setItem("title", title);
-            localStorage.setItem("body", body);
-            localStorage.setItem("tags", tags);
-            localStorage.setItem("blog_image", blogImage);
-            localStorage.setItem("author", author);
-            localStorage.setItem("published_date", publishedDateOfBlog);
-            localStorage.setItem("author_avatar", authorAvatar);
-            
+            localStorage.setItem("title", data.title);
+            localStorage.setItem("body", data.body);
+            localStorage.setItem("tags", data.tags);
+            localStorage.setItem("blog_image", data.media.url);
+            localStorage.setItem("author", data.author.name);
+            localStorage.setItem("published_date", data.created);
+            localStorage.setItem("author_avatar", data.author.avatar.url);
+
             // Update the published date in the DOM
-            const blogPublishedDate = document.querySelector('.blog-published-date');
-            blogPublishedDate.innerHTML = new Date(publishedDateOfBlog).toLocaleDateString();
-
-            const blogImageEl = document.querySelector('.blogpost-image');
-            blogImageEl.src = blogImage;
-
-            const blogTitleEl = document.querySelector('.blogpost-title');
-            blogTitleEl.innerHTML = title;
-
-            const blogBodyEl = document.querySelector('#blog-content');
-            blogBodyEl.innerHTML = body;
-
-            const blogTagsEl = document.querySelector('.blogpost-category');
-            blogTagsEl.innerHTML = tags;
-
-            const authorEl = document.querySelector('.blogpost-author');
-            authorEl.innerHTML = author;
-
-            const authorAvatarEl = document.querySelector('.author-avatar');
-            authorAvatarEl.src = authorAvatar;
+            document.querySelector('.blog-published-date').innerHTML = new Date(data.created).toLocaleDateString();
+            document.querySelector('.blogpost-image').src = data.media.url;
+            document.querySelector('.blogpost-title').innerHTML = data.title;
+            document.querySelector('#blog-content').innerHTML = data.body;
+            document.querySelector('.blogpost-category').innerHTML = data.tags;
+            document.querySelector('.blogpost-author').innerHTML = data.author.name;
+            document.querySelector('.author-avatar').src = data.author.avatar.url;
         })
         .catch((error) => {
             console.error("Fetch error: ", error);
@@ -108,4 +97,23 @@ document.getElementById('copy-link-btn').addEventListener('click', () => {
     }).catch(error => {
         console.error('Could not copy text:', error);
     });
+
+    fetch("https://v2.api.noroff.dev/blog/posts/elanetto/" + selectedPostId, requestOptions)
+    .then((response) => {
+        if (!response.ok) {
+            console.error("Network response was not ok:", response.status);
+            if (response.status === 404) {
+                alert("The requested blog post was not found.");
+            }
+            throw new Error("Network response was not ok");
+        }
+        return response.json();
+    })
+    .then((result) => {
+        // Your code to handle the result
+    })
+    .catch((error) => {
+        console.error("Fetch error: ", error);
+    });
+
 });

@@ -1,9 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
-    
-    // Retrieve the post ID from local storage
+    // Retrieve the post ID and username from local storage
     const postId = localStorage.getItem('selectedPostId');
     const cleanedPostId = postId ? postId.trim().replace(/^"|"$/g, '') : null;
-
     const username = localStorage.getItem('username');
     const cleanedUsername = username ? username.trim().replace(/^"|"$/g, '') : null;
 
@@ -100,4 +98,36 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.error('Error updating post:', error);
             });
     });
+
+    // Handle delete post action
+const deleteButton = document.querySelector('.edit-page-delete-button');
+deleteButton.addEventListener('click', function (event) {
+    event.preventDefault();
+
+    if (confirm('Are you sure you want to delete this blog post?')) {
+        const token = localStorage.getItem('access_token');
+        const cleanedToken = token ? token.trim().replace(/^"|"$/g, '') : null;
+
+        fetch(`https://v2.api.noroff.dev/blog/posts/${cleanedUsername}/${cleanedPostId}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${cleanedToken}`
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to delete the blog post');
+            }
+            // No need to parse JSON since DELETE requests often return no content
+            console.log('Post deleted successfully.');
+            // Redirect to the account page after deletion
+            window.location.href = '../account/myaccount.html';
+        })
+        .catch(error => {
+            console.error('Error deleting post:', error);
+        });
+    }
+});
+
 });

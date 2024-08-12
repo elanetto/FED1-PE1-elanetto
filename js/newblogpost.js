@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let token = localStorage.getItem("access_token");
     
     if (token) {
-        // Remove any extra quotes or whitespace
         token = token.replace(/"/g, '').trim();
         console.log("Cleaned access token: " + token);
         
@@ -34,13 +33,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const bodyInput = document.getElementById('blog-content').value;
             const tagInput = document.getElementById('blog-tag').value;
 
-            // Check if a tag is selected
             if (!tagInput) {
                 alert('Velg en kategori');
                 return;
             }
 
-            // Prepare headers and body for the API request
             const myHeaders = new Headers();
             myHeaders.append("Content-Type", "application/json");
             myHeaders.append("Authorization", "Bearer " + token);
@@ -74,11 +71,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     console.log(result);
 
                     // Save necessary data to localStorage
+                    const postId = result.data.id; // Assuming result.data contains the new post ID
+                    localStorage.setItem('selectedPostId', postId); // Set the ID for the next page
                     localStorage.setItem('title', titleInput);
                     localStorage.setItem('body', bodyInput);
                     localStorage.setItem('tags', tagInput);
                     localStorage.setItem('blog_image', imageInput);
-                    localStorage.setItem('id', result.data.id); // Assuming `result.data` has the `id`
 
                     // Redirect to the blogpost page
                     window.location.href = 'blogpost.html';
