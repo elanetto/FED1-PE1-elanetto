@@ -189,6 +189,10 @@ a {
     cursor: pointer;
 }
 
+.btn-admin {
+    margin-bottom: 4rem;
+}
+
 .btn-admin:hover {
     background-color: var(--green);
     color: var(--dark);
@@ -259,7 +263,6 @@ footer {
     display: flex;
     flex-direction: column;
     align-self: flex-end;
-    margin-top: 4rem;
     padding: 2rem;
 }
 

@@ -43,6 +43,34 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Helper function to fetch the API key
+    function fetchApiKey() {
+        const myHeaders = new Headers();
+        myHeaders.append("Authorization", "Bearer " + cleanedToken);
+
+        const requestOptions = {
+            method: "POST",
+            headers: myHeaders,
+            redirect: "follow"
+        };
+
+        return fetch("https://v2.api.noroff.dev/auth/create-api-key", requestOptions)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`API key request failed: ${response.status} ${response.statusText}`);
+                }
+                return response.json();
+            })
+            .then((result) => {
+                console.log('API Key Fetch Result:', result); // Log the full result
+                return result.data.key; // Adjusted to match the correct structure
+            })
+            .catch((error) => {
+                console.error('Error fetching API key:', error);
+                return null;
+            });
+    }
+
     // Make it possible to paste link to save a new profile picture
     const profilePictureInput = document.getElementById('profile-picture-input');
     const profilePictureButton = document.getElementById('profile-picture-button');
@@ -52,34 +80,41 @@ document.addEventListener('DOMContentLoaded', function () {
             event.preventDefault();
             const newAvatarUrl = profilePictureInput.value;
 
-            const myHeaders = new Headers();
-            myHeaders.append("Content-Type", "application/json");
-            myHeaders.append("X-Noroff-API-Key", "c7635231-b3f6-470b-97a5-0f6b141e33b2"); //this ONLY works for elanetto. The API key is unique for each user. This one is fetched through Postman
-            myHeaders.append("Authorization", "Bearer " + cleanedToken);
+            // Fetch the API key
+            fetchApiKey().then(apiKey => {
+                if (apiKey) {
+                    const myHeaders = new Headers();
+                    myHeaders.append("Content-Type", "application/json");
+                    myHeaders.append("X-Noroff-API-Key", apiKey);
+                    myHeaders.append("Authorization", "Bearer " + cleanedToken);
 
-            const raw = JSON.stringify({
-                "avatar": {
-                    "url": newAvatarUrl,
-                    "alt": "Avatar"
+                    const raw = JSON.stringify({
+                        "avatar": {
+                            "url": newAvatarUrl,
+                            "alt": "Avatar"
+                        }
+                    });
+
+                    const requestOptions = {
+                        method: "PUT",
+                        headers: myHeaders,
+                        body: raw,
+                        redirect: "follow"
+                    };
+
+                    fetch(`https://v2.api.noroff.dev/social/profiles/${cleanedUsername}`, requestOptions)
+                        .then((response) => response.text())
+                        .then((result) => {
+                            console.log('Profile picture changed:', result);
+                            localStorage.setItem('avatar_url', newAvatarUrl);
+                            alert('Profilbildet ditt er endret :)');
+                            location.reload(); // Reload the page after successful update
+                        })
+                        .catch((error) => console.error(error));
+                } else {
+                    alert('Unable to fetch API key.');
                 }
             });
-
-            const requestOptions = {
-                method: "PUT",
-                headers: myHeaders,
-                body: raw,
-                redirect: "follow"
-            };
-
-            fetch("https://v2.api.noroff.dev/social/profiles/elanetto", requestOptions)
-                .then((response) => response.text())
-                .then((result) => {
-                    console.log('Profile picture changed:', result);
-                    localStorage.setItem('avatar_url', newAvatarUrl);
-                    alert('Profilbilde endret');
-                    location.reload(); // Reload the page after successful update
-                })
-                .catch((error) => console.error(error));
         });
     }
 
@@ -92,34 +127,41 @@ document.addEventListener('DOMContentLoaded', function () {
             event.preventDefault();
             const newBannerUrl = bannerPictureInput.value;
 
-            const myHeaders = new Headers();
-            myHeaders.append("Content-Type", "application/json");
-            myHeaders.append("X-Noroff-API-Key", "c7635231-b3f6-470b-97a5-0f6b141e33b2");
-            myHeaders.append("Authorization", "Bearer " + cleanedToken);
+            // Fetch the API key
+            fetchApiKey().then(apiKey => {
+                if (apiKey) {
+                    const myHeaders = new Headers();
+                    myHeaders.append("Content-Type", "application/json");
+                    myHeaders.append("X-Noroff-API-Key", apiKey);
+                    myHeaders.append("Authorization", "Bearer " + cleanedToken);
 
-            const raw = JSON.stringify({
-                "banner": {
-                    "url": newBannerUrl,
-                    "alt": "Banner"
+                    const raw = JSON.stringify({
+                        "banner": {
+                            "url": newBannerUrl,
+                            "alt": "Banner"
+                        }
+                    });
+
+                    const requestOptions = {
+                        method: "PUT",
+                        headers: myHeaders,
+                        body: raw,
+                        redirect: "follow"
+                    };
+
+                    fetch(`https://v2.api.noroff.dev/social/profiles/${cleanedUsername}`, requestOptions)
+                        .then((response) => response.text())
+                        .then((result) => {
+                            console.log('Banner picture changed:', result);
+                            localStorage.setItem('banner_url', newBannerUrl);
+                            alert('Profilbanneret ditt er endret :)');
+                            location.reload(); // Reload the page after successful update
+                        })
+                        .catch((error) => console.error(error));
+                } else {
+                    alert('Unable to fetch API key.');
                 }
             });
-
-            const requestOptions = {
-                method: "PUT",
-                headers: myHeaders,
-                body: raw,
-                redirect: "follow"
-            };
-
-            fetch("https://v2.api.noroff.dev/social/profiles/elanetto", requestOptions)
-                .then((response) => response.text())
-                .then((result) => {
-                    console.log('Banner picture changed:', result);
-                    localStorage.setItem('banner_url', newBannerUrl);
-                    alert('Bannerbilde endret');
-                    location.reload(); // Reload the page after successful update
-                })
-                .catch((error) => console.error(error));
         });
     }
 });
