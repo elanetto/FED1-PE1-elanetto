@@ -301,3 +301,126 @@ footer {
 .secret-links a:hover {
     text-decoration: underline;
 }
+
+.blog-feed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: var(--gray);
+}
+
+#blog-posts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.blogpost-preview a {
+    color: var(--dark);
+}
+
+.blogpost-preview:hover {
+    text-decoration: underline;
+}
+
+.h2-new-size {
+    font-size: 3rem;
+}
+
+/* karusell */
+
+/* styles.css */
+
+/* Carousel container */
+#carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Carousel */
+#carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+}
+
+/* Carousel item */
+.carousel-item {
+    flex: 1 0 100%;
+    position: relative;
+    overflow: hidden;
+    height: 500px;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Carousel title */
+.carousel-title {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    font-size: 1.5em;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    z-index: 10;
+}
+
+/* Carousel buttons */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+#prev-button {
+    left: 10px;
+}
+
+#next-button {
+    right: 10px;
+}
+
+/* Dots container */
+#dots-container {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+    filter: drop-shadow(0 0 0.25rem #322E40);
+}
+
+/* Dots */
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: white;
+}
