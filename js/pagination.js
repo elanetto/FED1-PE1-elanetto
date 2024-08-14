@@ -48,10 +48,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 postElement.innerHTML = `
                     <div class="blog-post-preview" data-post-id="${cleanedPostId}">
-                        <div class="blog-admin-buttons">
-                            <button class="mini-button edit-button"><i class="fa-solid fa-pen-to-square"></i></button>
-                            <button class="mini-button delete-button"><i class="fa-solid fa-trash"></i></button>
-                        </div>
                         ${image ? `<img src="${image}" alt="${title}">` : ''}
                         <h2 class="h2-new-size">${title}</h2>
                     </div>

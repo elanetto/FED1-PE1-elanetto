@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 :root {
     --white: #FFF;
     --dark: #322E40;
@@ -33,6 +37,10 @@ body {
 
 a {
     text-decoration: none;
+}
+
+.white-link {
+    color: var(--white);
 }
 
 h1 {
@@ -448,7 +456,8 @@ footer {
 .carousel-image {
     height: 100%;
     width: 100%;
-    object-fit: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #carousel-container {
