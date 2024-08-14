@@ -7,12 +7,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nøklevann: Velkommen!</title>
+    <title>Nøklevann: Les Blogpost</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/createblogpost.css">
     <link rel="stylesheet" href="../css/blogpost.css">
     <link rel="stylesheet" href="../css/viewblogposts.css">
     <script src="../js/blogpost.js" defer></script>
+    <script src="../js/showAdminButtons.js" defer></script>
+    <script src="../js/showUserLink.js"></script>
 </head>
 <body>
     <header>
@@ -22,9 +24,9 @@
                     <a href="../index.html">Nøklevann</a>
                 </div>
                 <div class="navigation">
-                    <ul>
+                    <ul class="navigation-list">
                         <a href="../index.html"><li>Hjem</li></a>
-                        <a href="../index.html"><li>Blog</li></a>
+                        <a href="../index.html#carousel"><li>Blog</li></a>
                         <a href="../index.html#about-us"><li>Om Oss</li></a>
                     </ul>
                 </div>
@@ -35,6 +37,7 @@
     </header>
     <div id="blogpost-area">
         <div class="blogpost-content">
+            <div id="admin-buttons-container"></div>
             <div class="top-of-blog-info">
                 <div>
                     <p class="blog-published-date mini-info-text">Publisert dato dato år</p>
@@ -73,7 +76,7 @@
     <footer>
         <ul class="footer-links">
             <a href="../index.html"><li>Hjem</li></a>
-            <a href="#"><li>Blog</li></a>
+            <a href="../index.html#carousel"><li>Blog</li></a>
             <a href="../index.html#about-us"><li>Om Oss</li></a>
         </ul>
     </footer>

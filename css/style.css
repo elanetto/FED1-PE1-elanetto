@@ -13,6 +13,13 @@ html {
     --green: #A0B17D;
 }
 
+.new-blogpost-button:hover {
+    background-color: var(--green);
+    color: var(--dark);
+    font-weight: 700;
+    padding: 0.6rem 2.6rem;
+}
+
 .amatic-sc-regular {
     font-family: "Amatic SC", sans-serif;
     font-weight: 400;
@@ -462,4 +469,16 @@ footer {
 
 #carousel-container {
     background-color: var(--dark);
+}
+
+#tag-filter {
+    padding: .5rem;
+    border-radius: 6px;
+    border-style: none;
+}
+
+#search-input {
+    padding: 0.6rem 1.5rem;
+    border-radius: 6px;
+    border-style: none;
 }

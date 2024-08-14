@@ -10,6 +10,10 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
     }
 
+    // Add username and email to HTML DOM
+    const brukernavnElement = document.querySelectorAll('#welcome-username-edit-page');
+    brukernavnElement.forEach(el => el.innerHTML = "&nbsp;" + cleanedUsername);
+
     // Fetch the blog post data from the API
     fetch(`https://v2.api.noroff.dev/blog/posts/${cleanedUsername}/${cleanedPostId}`)
         .then(response => {

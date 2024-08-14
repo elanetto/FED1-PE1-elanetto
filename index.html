@@ -10,8 +10,9 @@
     <title>Nøklevann</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/viewblogposts.css">
-    <script src="js/carousel.js"></script>
-    <script src="js/pagination.js"></script>
+    <script src="js/carousel.js" defer></script>
+    <script src="js/pagination.js" defer></script>
+    <script src="js/showUserLink.js" defer></script>
 </head>
 <body>
     <header>
@@ -21,8 +22,8 @@
                     <a href="./index.html">Nøklevann</a>
                 </div>
                 <div class="navigation">
-                    <ul>
-                        <a href="https://elanetto.github.io/FED1-PE1-elanetto/"><li>Hjem</li></a>
+                    <ul class="navigation-list">
+                        <a href="index.html"><li>Hjem</li></a>
                         <a href="#carousel"><li>Blog</li></a>
                         <a href="#about-us"><li>Om Oss</li></a>
                     </ul>
@@ -53,6 +54,16 @@
             </div>
         </div>
         <div class="blog-feed">
+            <!-- New Tag Filter and Search Inputs -->
+            <div class="filter-search-container">
+                <select id="tag-filter">
+                    <option value="">Alle kategorier</option>
+                    <!-- Tags will be dynamically populated here -->
+                </select>
+                <input type="text" id="search-input" placeholder="Søk blogpost...">
+            </div>
+            
+            <!-- Blog Posts and Pagination Controls -->
             <div id="blog-posts"></div>
             <div id="pagination-controls"></div>
         </div>

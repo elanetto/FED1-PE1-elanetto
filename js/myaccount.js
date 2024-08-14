@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
         logoutButton.addEventListener('click', function () {
             localStorage.clear();
             sessionStorage.clear();
-            window.location.href = '/account/login.html';
+            window.location.href = '../index.html';
         });
     }
 
