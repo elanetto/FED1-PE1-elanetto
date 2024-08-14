@@ -38,21 +38,30 @@ document.addEventListener('DOMContentLoaded', function () {
         blogPostsContainer.innerHTML = ''; // Clear previous posts
 
         postsToShow.forEach((post) => {
-            const postElement = document.createElement('div');
-            postElement.classList.add('blog-post');
+            const postId = post.id;
+                const cleanedPostId = postId ? postId.trim().replace(/^"|"$/g, '') : null;
+                const title = post.title || 'No title';
+                const image = (post.media && post.media.url) || ''; // Ensure media exists
 
-            const title = post.title || 'No title';
-            const image = (post.media && post.media.url) || '';
+                const postElement = document.createElement('div');
+                postElement.classList.add('blog-post');
 
-            // Wrap the entire content inside an anchor tag
-            postElement.innerHTML = `
-                <div class="blogpost-preview">
-                <a href="post.html?id=${post.id}" class="blog-post-preview">
-                    ${image ? `<img src="${image}" alt="${title}">` : ''}
-                    <h2 class="h2-new-size">${title}</h2>
-                </a>
-                </div>
-            `;
+                postElement.innerHTML = `
+                    <div class="blog-post-preview" data-post-id="${cleanedPostId}">
+                        <div class="blog-admin-buttons">
+                            <button class="mini-button edit-button"><i class="fa-solid fa-pen-to-square"></i></button>
+                            <button class="mini-button delete-button"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                        ${image ? `<img src="${image}" alt="${title}">` : ''}
+                        <h2 class="h2-new-size">${title}</h2>
+                    </div>
+                `;
+
+                // Add click event listener to the entire post preview element to view the blog post
+                postElement.querySelector('.blog-post-preview').addEventListener('click', function () {
+                    localStorage.setItem('selectedPostId', cleanedPostId);
+                    window.location.href = '../post/blogpost.html'; // Redirect to the blog post page
+                });
 
             blogPostsContainer.appendChild(postElement);
         });

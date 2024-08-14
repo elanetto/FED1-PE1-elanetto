@@ -1,4 +1,3 @@
-// carousel.js
 document.addEventListener('DOMContentLoaded', function () {
     const carousel = document.getElementById('carousel');
     const prevButton = document.getElementById('prev-button');
@@ -17,21 +16,41 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Add carousel items
             posts.forEach(post => {
-                const carouselItem = document.createElement('a');
-                carouselItem.classList.add('carousel-item');
-                carouselItem.href = `./post.html?id=${post.id}`; // Adjust URL for individual post
+                const postId = post.id;
+                const cleanedPostId = postId ? postId.trim().replace(/^"|"$/g, '') : null;
+                const titleFromPost = post.title || 'No title';
+                const imageFromPost = (post.media && post.media.url) || ''; // Ensure media exists
 
-                const img = document.createElement('img');
-                img.src = post.media.url;
-                img.alt = post.title;
+                console.log('Post ID:', cleanedPostId);
+                console.log('Post Title:', titleFromPost);
+                console.log('Post Image:', imageFromPost);
 
-                const title = document.createElement('div');
-                title.classList.add('carousel-title');
-                title.textContent = post.title;
+                const postElement = document.createElement('div');
+                postElement.classList.add('carousel-slide');
 
-                carouselItem.appendChild(img);
-                carouselItem.appendChild(title);
-                carousel.appendChild(carouselItem);
+                postElement.innerHTML = `
+                    <div class="carousel-content">
+                        <div class="carousel-image">
+                            <div class="carousel-post-title">
+                                <h2 class="h2-new-size carousel-title">${titleFromPost}</h2>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                // Reference the carousel-image element within the current postElement
+                const bgImage = postElement.querySelector('.carousel-image');
+                if (bgImage && imageFromPost) {
+                    bgImage.style.backgroundImage = `url(${imageFromPost})`;
+                }
+
+                // Add click event listener to the entire post preview element to view the blog post
+                postElement.querySelector('.carousel-content').addEventListener('click', function () {
+                    localStorage.setItem('selectedPostId', cleanedPostId);
+                    window.location.href = '../post/blogpost.html'; // Redirect to the blog post page
+                });
+
+                carousel.appendChild(postElement);
             });
 
             // Add dots
