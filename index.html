@@ -13,6 +13,7 @@
     <script src="js/carousel.js" defer></script>
     <script src="js/pagination.js" defer></script>
     <script src="js/showUserLink.js" defer></script>
+    <script src="js/smallerSizeScreen.js" defer></script>
 </head>
 <body>
     <header>
@@ -22,12 +23,16 @@
                     <a href="./index.html">Nøklevann</a>
                 </div>
                 <div class="navigation">
+                    <div class="menu-icon" onclick="toggleMenu()">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
                     <ul class="navigation-list">
-                        <a href="index.html"><li>Hjem</li></a>
-                        <a href="#carousel"><li>Blog</li></a>
-                        <a href="#about-us"><li>Om Oss</li></a>
+                        <li><a href="index.html">Hjem</a></li>
+                        <li><a href="#carousel">Blog</a></li>
+                        <li><a href="#about-us">Om Oss</a></li>
                     </ul>
                 </div>
+                
             </nav>
             <div class="title-index">
                 <h1>Østmarkas Perle</h1>
