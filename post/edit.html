@@ -12,18 +12,28 @@
     <link rel="stylesheet" href="../css/viewblogposts.css">
     <link rel="stylesheet" href="../css/createblogpost.css">
     <script src="../js/edit.js" defer></script>
+    <script src="../js/smallerSizeScreen.js" defer></script>
 </head>
 <body>
     <header>
         <div class="bg-image bg-image-new-blogpost">
             <nav>
                 <div class="logo">
-                    <a href="../index.html">Nøklevann</a>
+                    <a href="./index.html">Nøklevann</a>
+                </div>
+                <div class="dropdown-menu">
+                    <i class="fa-solid fa-bars" id="dropdown-bars"></i>
+                    <div class="dropdown-content">
+                        <li class="dropdown-list-item"><a href="index.html">Hjem</a></li>
+                        <li class="dropdown-list-item"><a href="#carousel">Blog</a></li>
+                        <li class="dropdown-list-item"><a href="#about-us">Om Oss</a></li>
+                    </div>
                 </div>
                 <div class="navigation">
-                    <ul>
-                        <a href="../index.html#carousel"><li>Blog</li></a>
-                        <a href="../account/myaccount.html"><li><i class="fa-solid fa-user"></i> Min Bruker</li></a>
+                    <ul class="navigation-list">
+                        <li><a href="index.html">Hjem</a></li>
+                        <li><a href="#carousel">Blog</a></li>
+                        <li><a href="#about-us">Om Oss</a></li>
                     </ul>
                 </div>
             </nav>
