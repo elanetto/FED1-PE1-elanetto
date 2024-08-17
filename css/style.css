@@ -350,8 +350,6 @@ footer {
 
 /* karusell */
 
-/* styles.css */
-
 .background-for-carousel {
     background-color: var(--dark);
 }
@@ -484,14 +482,14 @@ footer {
     border-style: none;
 }
 
-.dropdown-content {
-    display: none;
-}
-
 
 /* DROPDOWN MENU */
 
 .dropdown-menu {
+    display: none;
+}
+
+.dropdown-content {
     display: none;
 }
 
@@ -536,4 +534,22 @@ footer {
     .dropdown-list-item a:hover {
         text-decoration: underline;
     }
+
+    /* CAROUSEL */
+
+    .carousel-content {
+        height: 300px;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .carousel-title {
+        font-size: 3rem;
+        text-align: center;
+    }
+
+   
 }
