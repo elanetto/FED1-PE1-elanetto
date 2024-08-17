@@ -35,44 +35,46 @@
                     </ul>
                 </div>
             </nav>
-            <div class="center-content">
-                <div class="register-box">
-                    <h1>Lag ny bruker</h1>
-                    <form id="register-form" class="register-form">
-                        <div class="register-form-inputs">
-                            <ul>
-                                <li>
-                                    <label for="username">Brukernavn:</label>
-                                    <input id="username" placeholder="Brukernavn" type="text">
-                                </li>
-                                <li>
-                                    <label for="email-register">Epost:</label>
-                                    <input id="email-register" placeholder="Epost" type="email">
-                                </li>
-                                <li>
-                                    <label for="password-register">Passord: &nbsp;    
-                                        <span class="eye-container" id="show-password-register">
-                                            <i class="fa-solid fa-eye-slash"></i>
-                                            <i class="fa-solid fa-eye hide"></i>
-                                        </span>
-                                    </label>
-                                    <input id="password-register" placeholder="Passord" type="password">
-                                </li>
-                            </ul>
-                            <div id="register-error">* Vennligst fyll inn alle feltene *</div>
-                            <button class="btn-admin" id="register-btn" type="submit">Registrer meg</button>
-                            <p class="already-user-text">Har du allerede bruker?
-                                <br>Logg inn <a href="login.html">her</a>
-                            </p>
-                        </div>
-                    </form>
-                    <div id="register-success">
-                        Gratulerer! Du har registrert en ny bruker. Vennligst gå til <a href="login.html">Logg inn</a> siden for å logge inn.
+        </div>
+    </header>
+    <main>
+        <div class="center-content-form">
+            <div class="register-box">
+                <h1>Lag ny bruker</h1>
+                <form id="register-form" class="register-form">
+                    <div class="register-form-inputs">
+                        <ul>
+                            <li>
+                                <label for="username">Brukernavn:</label>
+                                <input id="username" placeholder="Brukernavn" type="text">
+                            </li>
+                            <li>
+                                <label for="email-register">Epost:</label>
+                                <input id="email-register" placeholder="Epost" type="email">
+                            </li>
+                            <li>
+                                <label for="password-register">Passord: &nbsp;    
+                                    <span class="eye-container" id="show-password-register">
+                                        <i class="fa-solid fa-eye-slash"></i>
+                                        <i class="fa-solid fa-eye hide"></i>
+                                    </span>
+                                </label>
+                                <input id="password-register" placeholder="Passord" type="password">
+                            </li>
+                        </ul>
+                        <div id="register-error">* Vennligst fyll inn alle feltene *</div>
+                        <button class="btn-admin" id="register-btn" type="submit">Registrer meg</button>
+                        <p class="already-user-text">Har du allerede bruker?
+                            <br>Logg inn <a href="login.html">her</a>
+                        </p>
                     </div>
+                </form>
+                <div id="register-success">
+                    Gratulerer! Du har registrert en ny bruker. Vennligst gå til <a href="login.html">Logg inn</a> siden for å logge inn.
                 </div>
             </div>
         </div>
-    </header>
+    </main>
     <footer>
         <ul class="footer-links">
             <a href="../index.html"><li>Hjem</li></a>
