@@ -151,7 +151,7 @@ a {
 .about-us {
     display: flex;
     align-items: center;
-    justify-content:end;
+    justify-content: end;
     width: 100vw;
     background-color: var(--green);
     padding: 5rem;
@@ -174,26 +174,51 @@ a {
     font-size: 6rem;
 }
 
+/* REGISTER AND LOGIN FORM */
+
+#login-btn {
+    margin-top: 2rem;
+}
+
+.bg-image-register {
+    height: 100px;
+}
+
 .register-form-inputs {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 1rem;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.register-form-inputs ul {
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 .register-form-inputs ul li {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
     align-items: center;
-    gap: 1rem;
+    justify-content: space-between;
+    width: 100%;
     padding: 1rem;
+    box-sizing: border-box;
+    gap: 1rem;
 }
 
 .register-form-inputs ul li input {
-    width: 250px;
+    width: 200px;
     height: 30px;
+    text-align: center;
 }
+
+#register-btn {
+    align-self: center;
+}
+
 
 .btn-admin, .button {
     background-color: var(--dark);
@@ -232,7 +257,7 @@ a {
     align-items: center;
     justify-content: center;
     padding: 3rem;
-    border-radius: 6px;
+    height: 100vh;
 }
 
 .register-box h1 {
@@ -267,10 +292,17 @@ a {
     justify-content: center;
 }
 
+.center-content-form {
+    background-image: url(https://github.com/elanetto/FED1-PE1-elanetto/blob/main/assets/images/200kb-images/main_image_2_optimized_200.png?raw=true);
+    background-size: cover;
+}
+
 .input-texfield {
     width: 250px;
     height: 2.5rem;
 }
+
+/* FOOTER */
 
 footer {
     background-color: var(--dark);
@@ -280,6 +312,7 @@ footer {
     flex-direction: column;
     align-self: flex-end;
     padding: 2rem;
+    margin-top: auto;
 }
 
 .footer-links {
@@ -549,6 +582,40 @@ footer {
     .carousel-title {
         font-size: 3rem;
         text-align: center;
+    }
+
+    /* ABOUT US */
+
+    .about-us {
+        flex-direction: column-reverse;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        padding: 2rem 0rem;
+    }
+
+    .about-us-image {
+        margin-bottom: 4rem;
+        width: 100vw;
+    }
+
+    /* REGISTER SITE */
+
+    .register-form-inputs ul li {
+        padding: 0.5rem;
+        flex-direction: column;
+    }
+
+    .register-form-inputs ul li input {
+        width: 240px;
+        height: 35px;
+    }
+
+    #password-login, #email-login, #username, #email-register, #password-register {
+        text-align: center;
+    }
+
+    #register-btn {
+        margin-top: 2rem;
     }
 
    
