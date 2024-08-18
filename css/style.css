@@ -663,5 +663,7 @@ footer {
         display: flex;
         align-self: center;
     }
+
+    /* PS: The .share-btn-div has its own @Media in blogpost.css */
    
 }
