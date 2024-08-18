@@ -62,7 +62,7 @@
 
 #blog-content {
     width: 100%;
-    height: 400px;
+    /* height: 400px; */
 }
 
 #last-tag-info {
@@ -80,6 +80,12 @@
     width: 100%;
     height: 400px;
 }
+
+.input-blog-body {
+    width: 100%;
+    height: 400px;
+}
+
 .edit-page-delete-button {
     background-color: var(--dark);
     color: var(--white);

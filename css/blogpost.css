@@ -106,3 +106,14 @@
     text-align: center;
 }
 
+
+/* Small (sm) */
+@media (max-width: 750px) {
+
+    .share-btn-div {
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+    
+}
