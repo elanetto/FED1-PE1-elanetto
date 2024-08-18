@@ -100,3 +100,38 @@
     background-color: var(--green);
     color: var(--dark);
 }
+
+/* Small (sm) */
+@media (max-width: 750px) {
+
+    .blog-image-preview {
+        width: 100%;
+        height: 200px;
+    }
+
+    #new-blogpost-area {
+        padding: 0;
+        margin: 0;
+    }
+
+    #new-blogpost-form {
+        padding: 0;
+        margin: 0;
+    }
+
+    #new-blogpost-form-inputs ul {
+        padding: 0;
+        margin: 0;
+        padding-inline-start: 0;
+    }
+
+    ul {
+        padding-inline-start: 0;
+        margin: 0;
+    }
+
+    li {
+        padding: 0;
+    }
+    
+}
