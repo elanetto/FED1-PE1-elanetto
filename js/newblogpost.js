@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Set the username in the welcome message
     const username = localStorage.getItem("username");
     document.getElementById('welcome-username').innerHTML = "&nbsp;" + (username ? JSON.parse(username) : "Guest");
+    const cleanedUsername = username.replace(/"/g, '').trim();
 
     // Image preview handling
     const blogBildeInput = document.getElementById('blog-bilde-input');
@@ -58,8 +59,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 redirect: "follow"
             };
 
+            const apiLink = "https://v2.api.noroff.dev/blog/posts/" + cleanedUsername + "/";
+
             // Make the API request
-            fetch("https://v2.api.noroff.dev/blog/posts/elanetto", requestOptions)
+            fetch(apiLink, requestOptions)
                 .then((response) => {
                     if (response.ok) {
                         return response.json(); // Handle JSON response

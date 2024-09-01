@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const dotsContainer = document.getElementById('dots-container');
 
     // Fetch the latest blog posts
-    fetch('https://v2.api.noroff.dev/blog/posts/elanetto')
+    fetch("https://v2.api.noroff.dev/blog/posts/Anette/")
         .then(response => response.json())
         .then(data => {
             const posts = data.data.slice(0, 3); // Get the three latest posts
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Add click event listener to the entire post preview element to view the blog post
                 postElement.querySelector('.carousel-content').addEventListener('click', function () {
                     localStorage.setItem('selectedPostId', cleanedPostId);
-                    window.location.href = 'https://elanetto.github.io/FED1-PE1-elanetto/post/blogpost.html'; // Redirect to the blog post page
+                    window.location.href = 'post/blogpost.html'; // Redirect to the blog post page
                 });
 
                 carousel.appendChild(postElement);

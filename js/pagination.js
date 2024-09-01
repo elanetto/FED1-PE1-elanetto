@@ -4,6 +4,11 @@ document.addEventListener('DOMContentLoaded', function () {
     let allPosts = [];
     let filteredPosts = [];
 
+    const username = localStorage.getItem("username");
+    const cleanedUsername = username.replace(/"/g, '').trim();
+
+    const apiLink = "https://v2.api.noroff.dev/blog/posts/" + cleanedUsername + "/";
+
     // Function to fetch all blog posts
     function fetchAllBlogPosts() {
         const requestOptions = {
@@ -11,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
             redirect: "follow"
         };
 
-        fetch("https://v2.api.noroff.dev/blog/posts/elanetto", requestOptions)
+        fetch(apiLink, requestOptions)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -80,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Add click event listener to the entire post preview element to view the blog post
             postElement.querySelector('.blog-post-preview').addEventListener('click', function () {
                 localStorage.setItem('selectedPostId', cleanedPostId);
-                window.location.href = 'https://elanetto.github.io/FED1-PE1-elanetto/post/blogpost.html';
+                window.location.href = 'post/blogpost.html';
             });
 
             blogPostsContainer.appendChild(postElement);

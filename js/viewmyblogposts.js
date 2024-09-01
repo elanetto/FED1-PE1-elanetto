@@ -1,17 +1,20 @@
 document.addEventListener('DOMContentLoaded', function () {
     const myBlogPosts = document.getElementById('my-blog-posts');
-    const userId = localStorage.getItem('username');
-    const cleanedUserId = userId ? userId.trim().replace(/^"|"$/g, '') : null; // Clean up if needed
+    
+    const username = localStorage.getItem("username");
+    const cleanedUsername = username.replace(/"/g, '').trim();
+
+    const apiLink = "https://v2.api.noroff.dev/blog/posts/" + cleanedUsername + "/";
 
     const token = localStorage.getItem("access_token");
     const cleanedToken = token ? token.trim().replace(/^"|"$/g, '') : null;
 
-    if (!cleanedUserId) {
+    if (!cleanedUsername) {
         console.error('User ID is missing.');
         return;
     }
 
-    fetch(`https://v2.api.noroff.dev/blog/posts/${cleanedUserId}`)
+    fetch(apiLink)
         .then((response) => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -67,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     if (confirm('Er du sikker på at du vil slette dette innlegget?')) {
                         // If the user confirms, proceed with deletion
-                        fetch(`https://v2.api.noroff.dev/blog/posts/${cleanedUserId}/${cleanedPostId}`, {
+                        fetch(`https://v2.api.noroff.dev/blog/posts/${cleanedUsername}/${cleanedPostId}`, {
                             method: 'DELETE',
                             headers: {
                                 'Content-Type': 'application/json',
