@@ -4,10 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let allPosts = [];
     let filteredPosts = [];
 
-    const username = localStorage.getItem("username");
-    const cleanedUsername = username.replace(/"/g, '').trim();
-
-    const apiLink = "https://v2.api.noroff.dev/blog/posts/" + cleanedUsername + "/";
+    const apiLink = "https://v2.api.noroff.dev/blog/posts/Anette/";
 
     // Function to fetch all blog posts
     function fetchAllBlogPosts() {

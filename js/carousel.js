@@ -5,7 +5,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const dotsContainer = document.getElementById('dots-container');
 
     // Fetch the latest blog posts
-    fetch("https://v2.api.noroff.dev/blog/posts/Anette/")
+    const requestOptions = {
+        method: "GET",
+        redirect: "follow"
+      };
+
+    fetch("https://v2.api.noroff.dev/blog/posts/Anette", requestOptions)
         .then(response => response.json())
         .then(data => {
             const posts = data.data.slice(0, 3); // Get the three latest posts
