@@ -584,20 +584,6 @@ footer {
         text-align: center;
     }
 
-    /* ABOUT US */
-
-    .about-us {
-        flex-direction: column-reverse;
-        padding-bottom: 0;
-        margin-bottom: 0;
-        padding: 2rem 0rem;
-    }
-
-    .about-us-image {
-        margin-bottom: 4rem;
-        width: 100vw;
-    }
-
     /* REGISTER SITE */
 
     .register-form-inputs ul li {
@@ -666,4 +652,24 @@ footer {
 
     /* PS: The .share-btn-div has its own @Media in blogpost.css */
    
+}
+
+
+/* Medium (m) */
+@media (max-width: 1200px) {
+
+        /* ABOUT US */
+
+        .about-us {
+            flex-direction: column-reverse;
+            padding-bottom: 0;
+            margin-bottom: 0;
+            padding: 2rem 0rem;
+        }
+    
+        .about-us-image {
+            margin-bottom: 4rem;
+            width: 100vw;
+        }
+
 }
