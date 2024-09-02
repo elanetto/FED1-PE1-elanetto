@@ -4,10 +4,6 @@ document.addEventListener('DOMContentLoaded', function () {
     let allPosts = [];
     let filteredPosts = [];
 
-    // Using the specific link to the user API to fetch blogposts:
-
-    const apiLink = "https://v2.api.noroff.dev/blog/posts/Anette/";
-
     // Function to fetch all blog posts
     function fetchAllBlogPosts() {
         const requestOptions = {
@@ -15,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
             redirect: "follow"
         };
 
-        fetch(apiLink, requestOptions)
+        fetch("https://v2.api.noroff.dev/blog/posts/Anette/", requestOptions)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
