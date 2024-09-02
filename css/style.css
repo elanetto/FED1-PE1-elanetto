@@ -586,6 +586,12 @@ footer {
 
     /* REGISTER SITE */
 
+    .register-box {
+        padding: 0rem;
+        justify-content: start;
+        height: 550px;
+    }
+
     .register-form-inputs ul li {
         padding: 0.5rem;
         flex-direction: column;
