@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const authToken = localStorage.getItem('access_token');
 
     if (authToken) {
-        // User is logged in, so add the "Min Bruker" link to the nav bar
+        // User is logged in, so add the "Min Bruker" link to the nav bar - yes
         const navLinks = document.querySelector('.navigation-list');
         const userLink = document.createElement('a');
         userLink.href = "https://elanetto.github.io/FED1-PE1-elanetto/account/myaccount.html";
