@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Add click event listener to the entire post preview element to view the blog post
             postElement.querySelector('.blog-post-preview').addEventListener('click', function () {
                 localStorage.setItem('selectedPostId', cleanedPostId);
-                window.location.href = 'https://elanetto.github.io/FED1-PE1-elanetto/post/blogpost.html' + cleanedPostId;
+                window.location.href = 'https://elanetto.github.io/FED1-PE1-elanetto/post/blogpost.html' + '?blogId=' + cleanedPostId;
             });
 
             blogPostsContainer.appendChild(postElement);
