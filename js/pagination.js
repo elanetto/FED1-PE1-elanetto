@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let allPosts = [];
     let filteredPosts = [];
 
+    // Using the specific link to the user API to fetch blogposts:
+
     const apiLink = "https://v2.api.noroff.dev/blog/posts/Anette/";
 
     // Function to fetch all blog posts
