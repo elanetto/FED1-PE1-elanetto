@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const username = localStorage.getItem("username");
-    const cleanedUsername = username.replace(/"/g, '').trim();
+    // const username = localStorage.getItem("username");
+    // const cleanedUsername = username.replace(/"/g, '').trim();
     const blogId = localStorage.getItem("selectedPostId");
 
-    const apiLink = "https://v2.api.noroff.dev/blog/posts/" + cleanedUsername + "/";
+    const apiLink = "https://v2.api.noroff.dev/blog/posts/Anette/";
 
     // Function to load the blog post by ID
     function loadBlogPost(blogId) {
