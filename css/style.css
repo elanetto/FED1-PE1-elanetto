@@ -531,6 +531,9 @@ footer {
     .dropdown-menu {
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
         color: var(--white);
         font-size: 2rem;
         position: relative;
@@ -546,18 +549,26 @@ footer {
     }
 
     .dropdown-content {
-        display: none; 
+        display: flex; 
+        align-items: center;
+        justify-content: center;
         position: absolute;
+        text-align: center;
         z-index: 1000;
         top: 100%;
-        right: 0;
-        width: 130px;
+        right: -2rem;
+        width: 160px;
         background-color: #ffffffe2; 
-        padding: 2rem;
+        padding: 2rem 1rem;
         font-size: 1rem;
-        line-height: 2;
+        line-height: 3;
         border-radius: 6px;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .dropdown-content ul {
+        padding: 0;
+        margin: 0;
     }
 
     .dropdown-list-item a {
