@@ -21,6 +21,19 @@ This site is created for two different user experiences: A guest reader, and an 
 The guest reader should be able to search for, find, and read blogposts. As well as copying the link to a blogpost to be able to share it with others.
 The account user should be able to register, login, and then create, edit or delete blogposts.
 
+- index.html
+
+Account
+- account/register.html
+- account/login.html
+- account/myaccount.html
+
+Post
+- post/index.html (write blogpost)
+- post/blogpost.html (read blogpost)
+- post/edit.html
+
+
 # API
 The API used for this project is given from Noroff.
 The point of the project iis to use vanilla JavaScript to code and use an API to create a functional blog.
