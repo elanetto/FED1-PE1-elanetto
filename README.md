@@ -15,6 +15,16 @@ Have a look at the design mockup of the website in Figma here: [FIGMA](https://w
 # Tools & Languages
 ![image](https://github.com/elanetto/FED1-PE1-elanetto/blob/main/assets/images/all_badges_for_github_readme.png?raw=true)
 
+# Site map
+
+This site is created for two different user experiences: A guest reader, and an account user.
+The guest reader should be able to search for, find, and read blogposts. As well as copying the link to a blogpost to be able to share it with others.
+The account user should be able to register, login, and then create, edit or delete blogposts.
+
+# API
+The API used for this project is given from Noroff.
+The point of the project iis to use vanilla JavaScript to code and use an API to create a functional blog.
+
 ## Contact
 You can reach me at my email: hei@anettetherese.no
 
