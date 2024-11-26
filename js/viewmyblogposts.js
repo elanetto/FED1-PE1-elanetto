@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 
                     if (confirm('Er du sikker på at du vil slette dette innlegget? Posten vil bli slettet om du klikker OK.')) {
                         // If the user confirms, proceed with deletion
-                        fetch(`https://v2.api.noroff.dev/blog/posts/${cleanedUserId}/${cleanedPostId}`, {
+                        fetch(`https://v2.api.noroff.dev/blog/posts/${cleanedUsername}/${cleanedPostId}`, {
                             method: 'DELETE',
                             headers: {
                                 'Content-Type': 'application/json',
