@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         deleteButton.addEventListener('click', function (event) {
             event.stopPropagation(); // Prevent the general post click event from triggering
-
+        
             if (confirm('Er du sikker på at du vil slette dette innlegget?')) {
                 // If the user confirms, proceed with deletion
                 fetch(`https://v2.api.noroff.dev/blog/posts/${cleanedUserId}/${cleanedPostId}`, {
@@ -48,10 +48,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (!response.ok) {
                         throw new Error('Failed to delete the blog post');
                     }
-                    return response.json();
+                    // Only parse the response if it's not a 204 No Content
+                    if (response.status !== 204) {
+                        return response.json();
+                    }
+                    return null; // Return null for 204 responses
                 })
                 .then(result => {
-                    console.log('Post deleted successfully:', result);
                     // Refresh the page to reflect changes
                     location.reload();
                 })
@@ -60,5 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
             }
         });
+
+
     }
 });

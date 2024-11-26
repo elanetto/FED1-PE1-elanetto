@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 return response.json();
             })
             .then((response) => {
-                console.log('API Response:', response);
                 allPosts = response.data || []; // Store all posts
                 filteredPosts = [...allPosts]; // Initially, all posts are shown
                 populateTagFilter();

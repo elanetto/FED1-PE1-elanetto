@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function () {
             return response.json();
         })
         .then((response) => {
-            console.log('API Response:', response); // Log the entire response
 
             const posts = response.data || []; // Access the 'data' property from the response
             if (!Array.isArray(posts)) {
@@ -84,7 +83,6 @@ document.addEventListener('DOMContentLoaded', function () {
                             return response.json();
                         })
                         .then(result => {
-                            console.log('Post deleted successfully:', result);
                             // Refresh the page to reflect changes
                             location.reload();
                         })
