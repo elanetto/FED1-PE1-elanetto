@@ -1,7 +1,7 @@
 ![image](https://github.com/elanetto/FED1-PE1-elanetto/blob/main/assets/ReadMe/readme-image-header.png?raw=true)
 Visit deployed project: [Nøklevann Blogg](https://elanetto.github.io/FED1-PE1-elanetto/)
 
-# FED1 Project Exam: Blog
+# Front End Development - Year 1 - Project Exam: Blog
 
 **Task:** Create a blog using JavaScript, HTML and CSS.
 
