@@ -13,9 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
         if (blogBildeInput.value) {
             blogBildePreview.src = blogBildeInput.value;
-            console.log('Blogg-bilde endret');
-        } else {
-            console.log('Ingen bilde-URL angitt');
         }
     });
 
@@ -24,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (token) {
         token = token.replace(/"/g, '').trim();
-        console.log("Cleaned access token: " + token);
         
         document.getElementById('submit-blogpost-btn').addEventListener('click', function(event) {
             event.preventDefault(); // Prevent default form submission
@@ -71,7 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 })
                 .then((result) => {
-                    console.log(result);
 
                     // Save necessary data to localStorage
                     const postId = result.data.id; // Assuming result.data contains the new post ID

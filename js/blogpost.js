@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to load the blog post by ID
     function loadBlogPost(blogId) {
         const fetchUrl = apiLink + blogId;
-        console.log("Fetch URL:", fetchUrl);
 
         const requestOptions = {
             method: "GET",
@@ -33,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Logging the blog ID to the console
                 const blogId = data.id;
-                console.log("This is the blog ID: " + blogId);
 
                 // Accessing and storing other data
                 localStorage.setItem("selectedPostId", blogId);
@@ -65,13 +63,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (blogIdFromUrl) {
         // Load blog post from URL parameter
-        console.log("Loading blog post from URL parameter: " + blogIdFromUrl);
         loadBlogPost(blogIdFromUrl);
     } else {
         // Fallback to local storage if no URL parameter is provided
         const selectedPostId = localStorage.getItem('selectedPostId');
         if (selectedPostId) {
-            console.log("Loading blog post from local storage: " + selectedPostId);
             loadBlogPost(selectedPostId);
         } else {
             console.error("No blog post ID found in the URL or local storage.");

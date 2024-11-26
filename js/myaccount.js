@@ -62,7 +62,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 return response.json();
             })
             .then((result) => {
-                console.log('API Key Fetch Result:', result); // Log the full result
                 return result.data.key; // Adjusted to match the correct structure
             })
             .catch((error) => {
@@ -105,7 +104,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     fetch(`https://v2.api.noroff.dev/social/profiles/${cleanedUsername}`, requestOptions)
                         .then((response) => response.text())
                         .then((result) => {
-                            console.log('Profile picture changed:', result);
                             localStorage.setItem('avatar_url', newAvatarUrl);
                             alert('Profilbildet ditt er endret :)');
                             location.reload(); // Reload the page after successful update
@@ -152,7 +150,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     fetch(`https://v2.api.noroff.dev/social/profiles/${cleanedUsername}`, requestOptions)
                         .then((response) => response.text())
                         .then((result) => {
-                            console.log('Banner picture changed:', result);
                             localStorage.setItem('banner_url', newBannerUrl);
                             alert('Profilbanneret ditt er endret :)');
                             location.reload(); // Reload the page after successful update

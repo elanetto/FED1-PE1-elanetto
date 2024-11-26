@@ -38,35 +38,30 @@ document.addEventListener('DOMContentLoaded', function () {
         if (username.length < 2 || email.length < 2 || password.length < 2) {
             errorMessage.style.display = 'block';
             errorMessage.innerHTML = 'Alle feltene må fylles ut.';
-            console.log('Alle feltene må fylles ut.');
             return;
         }
 
         if (password.length < 9) {
             errorMessage.innerHTML = 'Passordet må inneholde mer enn 9 tegn.';
             errorMessage.style.display = 'block';
-            console.log('Passordet må inneholde mer enn 9 tegn.');
             return;
         }
 
         if (password.length > 20) {
             errorMessage.innerHTML = 'Passordet må inneholde mindre enn 20 tegn.';
             errorMessage.style.display = 'block';
-            console.log('Passordet må inneholde mindre enn 20 tegn.');
             return;
         }
 
         if (!email.includes('@stud.noroff.no')) {
             errorMessage.innerHTML = 'Eposten må slutte med @stud.noroff.no.';
             errorMessage.style.display = 'block';
-            console.log('Eposten må slutte med @stud.noroff.no.');
             return;
         }
 
         if (!/^[a-zA-Z0-9]+$/.test(username)) {
             errorMessage.innerHTML = 'Brukernavnet kan kun inneholde bokstaver og tall.';
             errorMessage.style.display = 'block';
-            console.log('Brukernavnet kan kun inneholde bokstaver og tall.');
             return;
         }
 
@@ -96,15 +91,11 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             const data = await response.json();
-            console.log(data);
 
             // Handle errors returned by the API
             if (data.errors) {
-                console.log(data.errors)
-                console.log(data.errors.map(error => error.message).join('<br>'));
                 errorMessage.style.display = 'block';
                 errorMessage.innerHTML = data.errors.map(error => error.message).join('<br>');
-                console.log(data.errors);
                 return;
             }
 
@@ -115,7 +106,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 localStorage.setItem('avatar', data.avatar.url);
                 localStorage.setItem('banner', data.banner.url);
                 successMessage.style.display = 'block';
-                console.log('Bruker registrert');
 
                 // Redirect to login page after 3 seconds
                 setTimeout(() => {
@@ -124,7 +114,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
         } catch (error) {
-            console.log(error);
             errorMessage.style.display = 'block';
             errorMessage.innerHTML = 'Noe gikk galt, prøv igjen senere.';
         }

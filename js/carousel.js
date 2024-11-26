@@ -26,10 +26,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 const titleFromPost = post.title || 'No title';
                 const imageFromPost = (post.media && post.media.url) || ''; // Ensure media exists
 
-                console.log('Post ID:', cleanedPostId);
-                console.log('Post Title:', titleFromPost);
-                console.log('Post Image:', imageFromPost);
-
                 const postElement = document.createElement('div');
                 postElement.classList.add('carousel-slide');
 

@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function () {
             return response.json();
         })
         .then(data => {
-            console.log('Fetched post data:', data);
 
             // Populate the form fields with the fetched data
             document.getElementById('blog-title-edit-page').value = data.data.title || '';
@@ -94,7 +93,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 return response.json();
             })
             .then(result => {
-                console.log('Post updated successfully:', result);
                 // Optionally redirect or inform the user of success
                 window.location.href = './blogpost.html'; // Redirect to blog home after editing
             })
@@ -123,8 +121,7 @@ deleteButton.addEventListener('click', function (event) {
             if (!response.ok) {
                 throw new Error('Failed to delete the blog post');
             }
-            // No need to parse JSON since DELETE requests often return no content
-            console.log('Post deleted successfully.');
+            
             // Redirect to the account page after deletion
             window.location.href = '../account/myaccount.html';
         })

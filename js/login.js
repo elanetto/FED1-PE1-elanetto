@@ -40,14 +40,12 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!validateEmail(email)) {
             errorMessageLogin.textContent = 'Ugyldig e-postadresse';
             errorMessageLogin.style.display = 'block';
-            console.log('Ugyldig e-postadresse');
             return;
         }
 
         if (password.length === 0) {
             errorMessageLogin.textContent = 'Passord mangler';
             errorMessageLogin.style.display = 'block';
-            console.log('Passord mangler');
             return;
         }
 
@@ -66,8 +64,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             const data = await response.json();
-            console.log(data); // Log response for debugging
-            console.log("hello!");
 
             if (response.ok) {
                 const accessToken = JSON.stringify(data.data.accessToken);
@@ -82,17 +78,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 localStorage.setItem("banner_url", banner);
                 localStorage.setItem("email", userEmail);
 
-                console.log('Innlogging vellykket');
                 window.location.href = '../account/myaccount.html';
             } else {
                 errorMessageLogin.textContent = data.errors[0]?.message || 'Feil brukernavn eller passord';
-                console.log('Feil brukernavn eller passord');
                 errorMessageLogin.style.display = 'block';
             }
         } catch (error) {
             console.error('Det skjedde en feil under innloggingen', error);
             errorMessageLogin.textContent = 'Det skjedde en feil under innloggingen';
-            console.log('Det skjedde en feil under innloggingen');
             errorMessageLogin.style.display = 'block';
         }
     });
