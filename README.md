@@ -3,8 +3,9 @@ Visit deployed project: [Nøklevann Blogg](https://elanetto.github.io/FED1-PE1-e
 
 # FED1 Project Exam: Blog
 
-Task: Create a blog using JavaScript, HTML and CSS.
-All pictures used in this project was taken by the programmer: Anette T. Lindberg 📷
+**Task:** Create a blog using JavaScript, HTML and CSS.
+
+All pictures used in this project was taken by the programmer: *Anette T. Lindberg* 📷
 
 ---------
 
@@ -52,6 +53,7 @@ The account user should be able to register, login, and then create, edit or del
 
 ## API
 The API used for this project was given from Noroff.
+
 The point of the project iis to use vanilla JavaScript to code and use an API to create a functional blog.
 
 ---------
