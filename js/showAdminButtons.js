@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
         deleteButton.addEventListener('click', function (event) {
             event.stopPropagation(); // Prevent the general post click event from triggering
         
-            if (confirm('Er du sikker på at du vil slette dette innlegget?')) {
+            if (confirm('Er du sikker på at du vil slette dette innlegget? Posten vil bli slettet, og du vil bli sent tilbake til hovedsiden om du klikker OK.')) {
                 // If the user confirms, proceed with deletion
                 fetch(`https://v2.api.noroff.dev/blog/posts/${cleanedUserId}/${cleanedPostId}`, {
                     method: 'DELETE',
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 })
                 .then(result => {
                     // Refresh the page to reflect changes
-                    location.reload();
+                    window.location.href = 'https://elanetto.github.io/FED1-PE1-elanetto/index.html';
                 })
                 .catch(error => {
                     console.error('Error deleting post:', error);
