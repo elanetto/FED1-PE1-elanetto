@@ -1,3 +1,6 @@
+// Declare cleanedToken globally
+let cleanedToken;
+
 document.addEventListener('DOMContentLoaded', function () {
     // Retrieve the post ID and username from local storage
     const postId = localStorage.getItem('selectedPostId');
@@ -9,6 +12,10 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error('Post ID or Username is missing.');
         return;
     }
+
+    // Initialize cleanedToken
+    const token = localStorage.getItem('access_token');
+    cleanedToken = token ? token.trim().replace(/^"|"$/g, '') : null;
 
     // Add username and email to HTML DOM
     const brukernavnElement = document.querySelectorAll('#welcome-username-edit-page');
@@ -23,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function () {
             return response.json();
         })
         .then(data => {
-
             // Populate the form fields with the fetched data
             document.getElementById('blog-title-edit-page').value = data.data.title || '';
             document.getElementById('blog-bilde-input-edit-page').value = data.data.media.url || '';
@@ -73,9 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Set up the request options
         const myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
-        const token = localStorage.getItem('access_token');
-        const cleanedToken = token ? token.trim().replace(/^"|"$/g, '') : null;
-        myHeaders.append("Authorization", "Bearer " + cleanedToken);
+        myHeaders.append("Authorization", "Bearer " + cleanedToken); // Use the global cleanedToken
 
         const requestOptions = {
             method: 'PUT',
@@ -88,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
         fetch(`https://v2.api.noroff.dev/blog/posts/${cleanedUsername}/${cleanedPostId}`, requestOptions)
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('Failed to update the blog post');
+                    throw new Error(' Failed to update the blog post');
                 }
                 return response.json();
             })
@@ -102,37 +106,36 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Handle delete post action
-const deleteButton = document.querySelector('.edit-page-delete-button');
-deleteButton.addEventListener('click', function (event) {
-    event.stopPropagation(); // Prevent the general post click event from triggering
+    const deleteButton = document.querySelector('.edit-page-delete-button');
+    deleteButton.addEventListener('click', function (event) {
+        event.stopPropagation(); // Prevent the general post click event from triggering
 
-    if (confirm('Er du sikker på at du vil slette dette innlegget? Posten vil bli slettet, og du vil bli sent tilbake til Din Profil om du klikker OK.')) {
-        // If the user confirms, proceed with deletion
-        fetch(`https://v2.api.noroff.dev/blog/posts/${cleanedUserId}/${cleanedPostId}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${cleanedToken}`
-            }
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Failed to delete the blog post');
-            }
-            // Only parse the response if it's not a 204 No Content
-            if (response.status !== 204) {
-                return response.json();
-            }
-            return null; // Return null for 204 responses
-        })
-        .then(result => {
-            // Refresh the page to reflect changes
-            window.location.href = '../account/myaccount.html';
-        })
-        .catch(error => {
-            console.error('Error deleting post:', error);
-        });
-    }
-});
-
+        if (confirm('Er du sikker på at du vil slette dette innlegget? Posten vil bli slettet, og du vil bli sent tilbake til Din Profil om du klikker OK.')) {
+            // If the user confirms, proceed with deletion
+            fetch(`https://v2.api.noroff.dev/blog/posts/${cleanedUsername}/${cleanedPostId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${cleanedToken}` // Use the global cleanedToken
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to delete the blog post');
+                }
+                // Only parse the response if it's not a 204 No Content
+                if (response.status !== 204) {
+                    return response.json();
+                }
+                return null; // Return null for 204 responses
+            })
+            .then(result => {
+                // Refresh the page to reflect changes
+                window.location.href = '../account/myaccount.html';
+            })
+            .catch(error => {
+                console.error('Error deleting post:', error);
+            });
+        }
+    });
 });
