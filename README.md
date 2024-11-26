@@ -61,8 +61,8 @@ The point of the project iis to use vanilla JavaScript to code and use an API to
 # Getting Started    🌟
 Make sure you have the following installed:
 
-- A web browser (Chrome, Firefox, etc.)
-- A code editor (VSCode, Sublime Text, etc.)
+- A web browser (Example: Chrome)
+- A code editor (Example: Visual Studio Code)
 
 ## Installation    🛠️
 1. Clone the repository:
