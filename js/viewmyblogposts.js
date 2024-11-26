@@ -66,10 +66,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 const deleteButton = postElement.querySelector('.delete-button');
                 deleteButton.addEventListener('click', function (event) {
                     event.stopPropagation(); // Prevent the general post click event from triggering
-
-                    if (confirm('Er du sikker på at du vil slette dette innlegget?')) {
+                
+                    if (confirm('Er du sikker på at du vil slette dette innlegget? Posten vil bli slettet om du klikker OK.')) {
                         // If the user confirms, proceed with deletion
-                        fetch(`https://v2.api.noroff.dev/blog/posts/${cleanedUsername}/${cleanedPostId}`, {
+                        fetch(`https://v2.api.noroff.dev/blog/posts/${cleanedUserId}/${cleanedPostId}`, {
                             method: 'DELETE',
                             headers: {
                                 'Content-Type': 'application/json',
@@ -80,7 +80,11 @@ document.addEventListener('DOMContentLoaded', function () {
                             if (!response.ok) {
                                 throw new Error('Failed to delete the blog post');
                             }
-                            return response.json();
+                            // Only parse the response if it's not a 204 No Content
+                            if (response.status !== 204) {
+                                return response.json();
+                            }
+                            return null; // Return null for 204 responses
                         })
                         .then(result => {
                             // Refresh the page to reflect changes

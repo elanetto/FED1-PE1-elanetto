@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     return null; // Return null for 204 responses
                 })
                 .then(result => {
-                    // Refresh the page to reflect changes
+                    // Send user to the main page after deletion
                     window.location.href = 'https://elanetto.github.io/FED1-PE1-elanetto/index.html';
                 })
                 .catch(error => {
