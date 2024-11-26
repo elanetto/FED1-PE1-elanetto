@@ -3,9 +3,8 @@ Visit deployed project: [Nøklevann Blogg](https://elanetto.github.io/FED1-PE1-e
 
 # FED1 Project Exam: Blog
 
-Creating a blog with JavaScript. Currently working on the Register page.
-
-This project is currently under production, and will be done in September of 2024.
+Task: Create a blog using JavaScript, HTML and CSS.
+All pictures used in this project was taken by the programmer: Anette T. Lindberg 📷
 
 ---------
 
